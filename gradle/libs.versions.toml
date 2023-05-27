@@ -23,4 +23,3 @@ androidApplication = { id = "com.android.application", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 
 [bundles]
-
