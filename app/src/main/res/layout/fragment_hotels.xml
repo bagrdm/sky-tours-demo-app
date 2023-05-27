@@ -6,7 +6,7 @@
     android:background="@color/tp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.ui.fragments.search.hotels.HotelsFragment">
+    tools:context="ui.fragments.hotels_fragment.HotelsFragment">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
