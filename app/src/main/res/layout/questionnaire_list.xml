@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraint"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:layout_constraintBottom_toBottomOf="parent"
+        card_view:layout_constraintEnd_toEndOf="parent"
+        card_view:layout_constraintStart_toStartOf="parent"
+        card_view:layout_constraintTop_toTopOf="parent"
+        card_view:cardCornerRadius="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/main_constraint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/large_room_type_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="Room 1"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/shapeableImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_human"
+                card_view:layout_constraintStart_toStartOf="@+id/large_room_type_description"
+                card_view:layout_constraintTop_toBottomOf="@+id/large_room_type_description" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/materialTextView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/adult"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                card_view:layout_constraintBottom_toBottomOf="@+id/shapeableImageView"
+                card_view:layout_constraintStart_toEndOf="@+id/shapeableImageView"
+                card_view:layout_constraintTop_toTopOf="@+id/shapeableImageView" />
+
+            <RadioGroup
+                android:id="@+id/sex_choose_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                card_view:layout_constraintStart_toStartOf="@+id/shapeableImageView"
+                card_view:layout_constraintTop_toBottomOf="@+id/materialTextView8">
+
+                <RadioButton
+                    android:id="@+id/male"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="male" />
+
+                <RadioButton
+                    android:id="@+id/female"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="female" />
+            </RadioGroup>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/name_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp"
+                android:hint="name on passport"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toStartOf="@+id/sex_choose_radio"
+                card_view:layout_constraintTop_toBottomOf="@+id/sex_choose_radio">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/surname_hit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:hint="surname on passport"
+                card_view:layout_constraintEnd_toEndOf="@+id/name_hint"
+                card_view:layout_constraintStart_toStartOf="@+id/name_hint"
+                card_view:layout_constraintTop_toBottomOf="@+id/name_hint">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/surname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/date_picker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:hint="date of birth"
+                card_view:layout_constraintEnd_toEndOf="@+id/surname_hit"
+                card_view:layout_constraintStart_toStartOf="@+id/surname_hit"
+                card_view:layout_constraintTop_toBottomOf="@+id/surname_hit">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </com.google.android.material.textfield.TextInputEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/contacts_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/contacts"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                card_view:layout_constraintStart_toStartOf="@+id/date_picker"
+                card_view:layout_constraintTop_toBottomOf="@+id/date_picker" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/email_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:hint="Email"
+                card_view:layout_constraintEnd_toEndOf="@+id/date_picker"
+                card_view:layout_constraintStart_toStartOf="@+id/contacts_view"
+                card_view:layout_constraintTop_toBottomOf="@+id/contacts_view">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/email_repeat_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="repeat Email"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="5dp"
+                card_view:layout_constraintEnd_toEndOf="@+id/email_hint"
+                card_view:layout_constraintStart_toStartOf="@+id/email_hint"
+                card_view:layout_constraintTop_toBottomOf="@+id/email_hint">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email_repeat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/prefix_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="prefix"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                card_view:layout_constraintEnd_toEndOf="@+id/email_repeat_hint"
+                card_view:layout_constraintStart_toStartOf="@+id/email_repeat_hint"
+                card_view:layout_constraintTop_toBottomOf="@+id/email_repeat_hint">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/prefix"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/phone_number_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="10dp"
+                android:hint="phone number"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintEnd_toEndOf="@+id/prefix_hint"
+                card_view:layout_constraintStart_toStartOf="@+id/prefix_hint"
+                card_view:layout_constraintTop_toBottomOf="@+id/prefix_hint">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/phone_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/date_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/tp"
+                card_view:layout_constraintEnd_toEndOf="@+id/date_picker"
+                card_view:layout_constraintStart_toStartOf="@+id/date_picker"
+                card_view:layout_constraintTop_toBottomOf="@+id/surname_hit" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+ <!--    <com.google.android.material.button.MaterialButton-->
+<!--        android:id="@+id/choose_button"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="choose room"-->
+<!--        android:textSize="10dp"-->
+<!--        card_view:layout_constraintBottom_toBottomOf="parent"-->
+<!--        card_view:layout_constraintEnd_toEndOf="parent"-->
+<!--        card_view:layout_constraintTop_toBottomOf="@+id/constraintLayout9" />-->
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="theme">
+        <item>@string/light</item>
+        <item>@string/dark</item>
+        <item>@string/color</item>
+
+    </string-array>
+
+    <string-array name="reply_ent">
+        <item>Reply</item>
+        <item>Reply to all</item>
+    </string-array>
+
+    <string-array name="reply_values">
+        <item>reply</item>
+        <item>reply_all</item>
+    </string-array>
+
+    <string-array name="color_correction_names_array">
+    <item>@string/normal</item>
+    <item>@string/deuteranomaly</item>
+    <item>@string/protanomaly</item>
+    <item>@string/tritanomaly</item>
+    </string-array>
+
+    <string-array name="color_correction_values_array">
+    <item>@string/normal_value</item>
+    <item>@string/deuteranomaly_value</item>
+    <item>@string/protanomaly_value</item>
+    <item>@string/tritanomaly_value</item>
+    </string-array>
+
+    <string-array name="lang_names_array">
+    <item>@string/follow_system_name</item>
+    <item>@string/En</item>
+    <item>@string/Rus</item>
+    </string-array>
+
+    <string-array name="lang_values_array">
+        <item>@string/follow_system_value</item>
+        <item>@string/En</item>
+        <item>@string/Rus</item>
+    </string-array>
+
+</resources>

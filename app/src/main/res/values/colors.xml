@@ -1,5 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="purple_l">#FFBB86FC</color>
+    <color name="purple_lm">#673AB7</color>
+    <color name="purple_m">#FF6200EE</color>
+    <color name="purple_d">#FF3700B3</color>
+
+    <color name="main_light">#cee9f2</color>
+    <color name="main_dark">@color/gray_d</color>
+    <color name="main_colorful">#00BCD4</color>
+
+
+    <color name="teal_l">#FF03DAC5</color>
+    <color name="teal_d">#FF018786</color>
+    <color name="teal_main">#119CA4</color>
+
+
+    <color name="yellow">#FFC107</color>
+    <color name="orange_l">#FFC107</color>
+    <color name="orange_m">#FF9800</color>
+    <color name="orange_d">#FF5722</color>
+    <color name="red">#FD1100</color>
+
+
+    <color name="pink">#E1C82FD0</color>
+
+    <color name="green_l">#8BC34A</color>
+    <color name="green_m">#4CAF50</color>
+    <color name="green_d">#009688</color>
+
+    <color name="gray_l">#46707E8F</color>
+    <color name="gray_m">#78707E8F</color>
+    <color name="gray_lm">#AE707E8F</color>
+    <color name="gray_main">#707e8f</color>
+    <color name="gray_d">#5A6573</color>
+
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="whiteish">#FAFAFAFA</color>
+    <color name="white_gray">#ECEFF1</color>
+    <color name="whitesystem">#F2F3F5</color>
+    <color name="tp">@android:color/transparent</color>
+
+    <color name="background">#cee9f2</color>
+    <color name="nav">#105467</color>
+
 </resources>
