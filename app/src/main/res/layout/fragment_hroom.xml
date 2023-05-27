@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/tp"
+    style="@style/Widget.Material3.CardV">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/close_room"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/tp"
+            app:layout_constraintBottom_toBottomOf="@+id/room_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.111"
+            app:srcCompat="@drawable/ic_close"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/room_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/room_reservation"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/done_room"
+            app:layout_constraintStart_toEndOf="@+id/close_room"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/done_room"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@color/tp"
+            android:src="@drawable/ic_done"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck">
+
+        </ImageButton>
+
+        <TextView
+            android:id="@+id/adult_count_overal_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/adult"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/adult_count_overal"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/close_room"
+            app:layout_constraintTop_toBottomOf="@+id/room_title"
+            app:layout_constraintVertical_bias="0.5" />
+
+        <TextView
+            android:id="@+id/adult_count_overal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1/14"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/child_count_overal_text"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/adult_count_overal_text"
+            app:layout_constraintTop_toBottomOf="@+id/room_title"
+            app:layout_constraintVertical_bias="0.5">
+
+        </TextView>
+
+
+        <TextView
+            android:id="@+id/child_count_overal_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/children"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/child_count_overal"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/adult_count_overal"
+            app:layout_constraintTop_toBottomOf="@+id/room_title"
+            app:layout_constraintVertical_bias="0.5">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/child_count_overal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0/13"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/all_count_text"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/child_count_overal_text"
+            app:layout_constraintTop_toBottomOf="@+id/room_title"
+            app:layout_constraintVertical_bias="0.5" />
+
+        <TextView
+            android:id="@+id/all_count_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="overal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/all_count"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/child_count_overal"
+            app:layout_constraintTop_toBottomOf="@+id/room_title"
+            app:layout_constraintVertical_bias="0.5">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/all_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:text="1/14"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/done_room"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/all_count_text"
+            app:layout_constraintTop_toBottomOf="@+id/room_title"
+            app:layout_constraintVertical_bias="0.5" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/constraintLayout5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5"
+        app:layout_constraintVertical_bias="1.0"
+        android:background="@drawable/custom_dialog_round">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/room_listrecycle"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        tools:listitem="@layout/room_list"
+        android:visibility="visible"
+        tools:itemCount="4"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
+
+    </androidx.recyclerview.widget.RecyclerView>
+    </ScrollView>
+
+
+    <Button
+        android:id="@+id/add_room"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/scroll"
+        android:layout_alignEnd="@+id/scroll"
+        android:background="@drawable/rectangle"
+        android:drawableLeft="@drawable/ic_plus"
+        android:fontFamily="@font/droid_serif"
+        android:gravity="center_vertical|end"
+        android:text="@string/room"
+        android:textColor="@color/teal_main"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="parent" />
+
+</RelativeLayout>

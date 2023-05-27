@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout="@layout/settings_title">
+
+
+     <PreferenceCategory
+         android:key="LogIn"
+         android:layout="@layout/settings_title">
+
+</PreferenceCategory>
+
+    <!--        <PreferenceCategory-->
+<!--            android:title="Cache"-->
+<!--            android:icon="@drawable/ic_search">-->
+<!--            <EditTextPreference-->
+<!--                android:defaultValue="900"-->
+<!--                android:inputType="number"-->
+<!--                android:key="cache_key"-->
+<!--                android:selectAllOnFocus="true"-->
+<!--                android:singleLine="true"-->
+<!--                android:title="@string/search" />-->
+<!--        </PreferenceCategory>-->
+    <PreferenceCategory
+        android:key="@string/appearance"
+        android:title="@string/appearance"
+        android:icon="@drawable/ic_brush">
+
+        <ListPreference
+            android:title="Theme"
+            android:defaultValue="@string/follow_system_value"
+            android:entries="@array/theme_names_array"
+            android:entryValues="@array/theme_values_array"
+            android:key="theme_key" />
+        <ListPreference
+            android:title="Color correction"
+            android:defaultValue="@string/follow_system_value"
+            android:entries="@array/color_correction_names_array"
+            android:entryValues="@array/color_correction_values_array"
+            android:key="color_correction_key" />
+
+
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="@string/regional_settings"
+        android:icon="@drawable/ic_language"
+        android:title="@string/regional_settings">
+
+        <!--        <ListPreference-->
+        <!--            android:title="Country"-->
+        <!--            android:defaultValue="United States of America"-->
+        <!--            android:entries="@array/coutry_names_array"-->
+        <!--            -->
+
+        <ListPreference
+            android:title="Language"
+            android:defaultValue="@string/follow_system_value"
+            android:entries="@array/lang_names_array"
+            android:entryValues="@array/lang_values_array"
+            android:key="lang_key" />
+
+        <ListPreference
+            android:title="Currency"
+            android:defaultValue="@string/EUR"
+            android:entries="@array/lang_names_array"
+            android:entryValues="@array/lang_values_array"
+            android:key="curr_key"/>
+
+    </PreferenceCategory>
+
+    <DropDownPreference
+        android:key="dropdown"
+        android:title="LangList"
+        android:entries="@array/lang_names_array"
+        app:useSimpleSummaryProvider="true"
+        android:entryValues="@array/lang_values_array"
+        />
+
+    <Preference
+        android:title="@string/rate_app"
+        android:icon="@drawable/ic_rate">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="https://www.sky-tours.com/ru/"/>
+    </Preference>
+
+    <Preference
+        android:title="@string/about"
+        android:icon="@drawable/ic_info">
+
+    </Preference>
+
+    <Preference
+        android:title="Bug report"
+        android:icon="@drawable/ic_rate">
+        <intent
+            android:action="android.intent.action.PICK_ACTIVITY">
+        </intent>
+    </Preference>
+
+</PreferenceScreen>

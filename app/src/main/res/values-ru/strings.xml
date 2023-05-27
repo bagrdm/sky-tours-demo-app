@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search">Поиск</string>
+    <string name="info">Инфо</string>
+    <string name="settings">Настройки</string>
+    <string name="recent">Недавние</string>
+    <string name="hotels">Отели</string>
+    <string name="flight">Перелёты</string>
+    <string name="cars">Авто</string>
+    <string name="destinations">Направления</string>
+    <string name="hotelnflight">Отель + Перелёт</string>
+    <string name="about">Подробнее</string>
+    <string name="contacts">Контакты</string>
+    <string name="help">Помощь</string>
+    <string name="log_in_agent">Вход (для агентов)</string>
+    <string name="notifications">Уведомления</string>
+    <string name="privacy_settings">Настройки приватности</string>
+    <string name="regional_settings">Региональные настройки</string>
+    <string name="appearance">Внешний вид</string>
+    <string name="trips">Путешествия</string>
+    <string name="adult">взрослый</string>
+    <string name="children">ребенок</string>
+    <string name="room">Комната</string>
+    <string name="date">дата</string>
+    <string name="to">до</string>
+    <string name="from">с</string>
+    <string name="log_in">Вход</string>
+    <string name="register_toast_enter_phone">Введите номер телефона!</string>
+
+
+    <string name="theme">Темы</string>
+    <string name="brightness">Яркость</string>
+    <string name="nm">Расписание ночного режима</string>
+    <string name="light">светлая</string>
+    <string name="dark">темная</string>
+    <string name="color">цветная</string>
+    <string name="normal">норма</string>
+    <string name="deuteranomaly">дейтераномалия(красный/зелёный)</string>
+    <string name="protanomaly">протаномалия(красный/зелёный)</string>
+    <string name="tritanomaly">тританомалия(синий/желтый)</string>
+    <string name="normal_value">норма</string>
+    <string name="deuteranomaly_value">дейтераномалия(красный/зелёный)</string>
+    <string name="protanomaly_value">протаномалия(красный/зелёный)</string>
+    <string name="tritanomaly_value">тританомалия(синий/желтый)</string>
+
+    <string name="exit">Выход</string>
+    <string name="question_exit">Вы уверенны, что хотите выйти?</string>
+    <string name="possitive">Да</string>
+    <string name="negative">Нет</string>
+    <string name="choosedayofdp">Выберите дату отправления</string>
+    <string name="choosedayofar">Выберите дату прибытия</string>
+    <string name="chi_age">Возраст ребенка:</string>
+    <string name="large_text">шир текст</string>
+    <string name="choose_dest">Выберите направление</string>
+    <string name="room_reservation">Бронирование номеров</string>
+    <string name="attention_much">Значение поля не может быть более 14!</string>
+    <string name="attention_less_1">Значение поля не может быть менее 1!</string>
+    <string name="attention_less_0">Значение поля не может быть менее 0!</string>
+    <string name="attention_child">Вместе с ребенком должен быть взрослый</string>
+
+    <string name="Rus">Русский</string>
+    <string name="title_home" translatable="false">Поиск</string>
+    <string name="title_info">Инфо</string>
+    <string name="title_trips">Трипы</string>
+    <string name="title_recent">Недавние</string>
+    <string name="title_settings">Настройки</string>
+    <string name="light_theme_value" translatable="false">Светлая</string>
+    <string name="dark_theme_value" translatable="false">Тёмная</string>
+    <string name="auto_battery_value">Энергосбережение</string>
+    <string name="follow_system_value" translatable="false">По настройкам системы</string>
+    <string name="preference_theme_title" translatable="false">Темы</string>
+    <string name="light_theme_name" translatable="false">Светлая</string>
+    <string name="dark_theme_name" translatable="false">Тёмная</string>
+    <string name="auto_battery_name" translatable="false">Энергосбережение</string>
+    <string name="follow_system_name" translatable="false">По настройкам системы</string>
+    <string name="flight_mode_error" translatable="false">Ваше устройство находится в режиме \"полета\". Отключите его, затем перезапустите приложение.</string>
+    <string name="location_permission_error" translatable="false">Доступ к местоположению отклонён!</string>
+    <string name="enable_gps" translatable="false">Включите местоположение, затем перезапустите приложение!</string>
+    <string name="location_permission" translatable="false">Запрос на местоположение устройства</string>
+    <string name="access_location_message" translatable="false">Это приложение запрашивает использование вашего местоположения(некоторые функции могут бе работать!)</string>
+    <string name="no" translatable="false">Отклонить</string>
+    <string name="ask_me" translatable="false">Спросить позже</string>
+    <string name="rate_app" translatable="false">Оценить приложение</string>
+    <string name="yes">Принять</string>
+    <string name="maybe">Возможно</string>
+    <string name="search_near">Искать поблизости</string>
+    <string name="zero">0</string>
+    <string name="one">1</string>
+    <string name="one_more">добавить еще одну</string>
+    <string name="detect_location">(определение местоположения)</string>
+    <string name="maybe_u_mean">Возможно, вы имели ввиду:</string>
+    <string name="Detect_location">(определение местоположения)</string>
+    <string name="profile">Profile</string>
+    <string name="non_login">Non LogIn</string>
+    <string name="save_data_in_account">Save data in your personal \naccount and you won’t have to enter \n it with each new trip. \nPlease note, that we do not\n collect credit card \nor other payment data</string>
+
+
+</resources>

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraint"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:layout_constraintBottom_toBottomOf="parent"
+        card_view:layout_constraintEnd_toEndOf="parent"
+        card_view:layout_constraintStart_toStartOf="parent"
+        card_view:layout_constraintTop_toTopOf="parent"
+        card_view:cardCornerRadius="10dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/large_room_type_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="Standard Double or Twin Room with Extra Bed"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/small_room_type_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Room only"
+                android:textSize="12dp"
+                card_view:layout_constraintStart_toStartOf="@+id/large_room_type_description"
+                card_view:layout_constraintTop_toBottomOf="@+id/large_room_type_description" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/guests_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Guests:"
+                android:textSize="15dp"
+                card_view:layout_constraintStart_toStartOf="@+id/small_room_type_description"
+                card_view:layout_constraintTop_toBottomOf="@+id/small_room_type_description" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/shapeableImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_human"
+                card_view:layout_constraintBottom_toBottomOf="@+id/guests_text"
+                card_view:layout_constraintStart_toEndOf="@+id/guests_text"
+                card_view:layout_constraintTop_toTopOf="@+id/guests_text" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/guests_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="x 1"
+                android:textSize="15dp"
+                card_view:layout_constraintBottom_toBottomOf="@+id/shapeableImageView"
+                card_view:layout_constraintStart_toEndOf="@+id/shapeableImageView"
+                card_view:layout_constraintTop_toTopOf="@+id/shapeableImageView" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/materialTextView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cancellation Policy"
+                android:textColor="@color/teal_main"
+                android:textSize="10dp"
+                android:layout_marginTop="10dp"
+                card_view:layout_constraintStart_toStartOf="@+id/guests_text"
+                card_view:layout_constraintTop_toBottomOf="@+id/guests_text"></com.google.android.material.textview.MaterialTextView>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/shapeableImageView2"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:src="@drawable/ic_info_active"
+                card_view:layout_constraintBottom_toBottomOf="@+id/materialTextView9"
+                card_view:layout_constraintStart_toEndOf="@+id/materialTextView9"
+                card_view:layout_constraintTop_toTopOf="@+id/materialTextView9"></com.google.android.material.imageview.ShapeableImageView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/cancellation_button"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/tp"
+                card_view:layout_constraintBottom_toBottomOf="@+id/materialTextView9"
+                card_view:layout_constraintEnd_toEndOf="@+id/shapeableImageView2"
+                card_view:layout_constraintStart_toStartOf="@+id/materialTextView9"
+                card_view:layout_constraintTop_toTopOf="@+id/materialTextView9">
+
+            </com.google.android.material.button.MaterialButton>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="10dp"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toEndOf="@+id/guests_count"
+                card_view:layout_constraintTop_toBottomOf="@+id/large_room_type_description">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/pernight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="per night"
+                    android:textSize="12dp"
+                    card_view:layout_constraintEnd_toStartOf="@+id/pernight_price"
+                    card_view:layout_constraintHorizontal_bias="0.5"
+                    card_view:layout_constraintStart_toStartOf="parent"
+                    card_view:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/pernight_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="12dp"
+                    card_view:layout_constraintBottom_toBottomOf="@+id/pernight"
+                    card_view:layout_constraintEnd_toEndOf="parent"
+                    card_view:layout_constraintTop_toTopOf="@+id/pernight">
+
+                </com.google.android.material.textview.MaterialTextView>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/taxes_n_fees"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="taxes and fees"
+                    android:textSize="12dp"
+                    card_view:layout_constraintStart_toStartOf="@+id/pernight"
+                    card_view:layout_constraintTop_toBottomOf="@+id/pernight" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/taxes_n_fees_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="12dp"
+                    card_view:layout_constraintBottom_toBottomOf="@+id/taxes_n_fees"
+                    card_view:layout_constraintEnd_toEndOf="@+id/pernight_price"
+                    card_view:layout_constraintTop_toTopOf="@+id/taxes_n_fees" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/nights"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="nights"
+                    android:textSize="12dp"
+                    card_view:layout_constraintStart_toStartOf="@+id/taxes_n_fees"
+                    card_view:layout_constraintTop_toBottomOf="@+id/taxes_n_fees">
+
+                </com.google.android.material.textview.MaterialTextView>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/nights_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="12dp"
+                    card_view:layout_constraintBottom_toBottomOf="@+id/nights"
+                    card_view:layout_constraintEnd_toEndOf="@+id/taxes_n_fees_price"
+                    card_view:layout_constraintTop_toTopOf="@+id/nights" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/rooms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="rooms"
+                    android:textSize="12dp"
+                    card_view:layout_constraintStart_toStartOf="@+id/nights"
+                    card_view:layout_constraintTop_toBottomOf="@+id/nights" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/rooms_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="12dp"
+                    card_view:layout_constraintBottom_toBottomOf="@+id/rooms"
+                    card_view:layout_constraintEnd_toEndOf="parent"
+                    card_view:layout_constraintTop_toTopOf="@+id/rooms">
+                </com.google.android.material.textview.MaterialTextView>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/room_total_price"
+                    android:text="US$ 50.51"
+                    android:textStyle="bold"
+                    android:textSize="18dp"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/teal_main"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    card_view:layout_constraintEnd_toEndOf="parent"
+                    card_view:layout_constraintTop_toBottomOf="@+id/rooms_count"></com.google.android.material.textview.MaterialTextView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/choose_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="choose room"
+                android:textSize="10dp"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
+                card_view:layout_constraintVertical_bias="0.0" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,26 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Skytoursdemoapp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    <style name="Theme.SkytoursProject" parent="Theme.MaterialComponents.DayNight">
+        <!-- Primary brand color. -->
+        <item name="colorAccent">@color/teal_main</item>
+        <item name="colorPrimary">@color/whiteish</item>
+        <item name="colorPrimaryVariant">@color/teal_d</item>
+        <item name="colorOnPrimary">@color/gray_d</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_l</item>
+        <item name="colorSecondaryVariant">@color/teal_l</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
     </style>
 </resources>
