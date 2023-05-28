@@ -28,8 +28,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:text="Room 1"
-                android:textSize="18dp"
+                android:text="@string/room_1"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 card_view:layout_constraintStart_toStartOf="parent"
                 card_view:layout_constraintTop_toTopOf="parent" />
@@ -67,23 +67,20 @@
                     android:id="@+id/male"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:text="male" />
+                    android:text="@string/male" />
 
                 <RadioButton
                     android:id="@+id/female"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:text="female" />
+                    android:text="@string/female" />
             </RadioGroup>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/name_hint"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="5dp"
-                android:hint="name on passport"
+                style="@style/questionnaire_field_style"
+                android:hint="@string/name_on_passport"
                 card_view:layout_constraintEnd_toEndOf="parent"
                 card_view:layout_constraintStart_toStartOf="@+id/sex_choose_radio"
                 card_view:layout_constraintTop_toBottomOf="@+id/sex_choose_radio">
@@ -91,35 +88,29 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/name"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    tools:ignore="TextContrastCheck,TextContrastCheck,VisualLintTextFieldSize" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/surname_hit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="5dp"
-                android:hint="surname on passport"
+                android:hint="@string/surname_on_passport"
                 card_view:layout_constraintEnd_toEndOf="@+id/name_hint"
                 card_view:layout_constraintStart_toStartOf="@+id/name_hint"
-                card_view:layout_constraintTop_toBottomOf="@+id/name_hint">
+                card_view:layout_constraintTop_toBottomOf="@+id/name_hint"
+                style="@style/questionnaire_field_style">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/surname"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    tools:ignore="TextContrastCheck,TextContrastCheck,VisualLintTextFieldSize" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/date_picker"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="5dp"
-                android:hint="date of birth"
+                style="@style/questionnaire_field_style"
+                android:hint="@string/date_of_birth"
                 card_view:layout_constraintEnd_toEndOf="@+id/surname_hit"
                 card_view:layout_constraintStart_toStartOf="@+id/surname_hit"
                 card_view:layout_constraintTop_toBottomOf="@+id/surname_hit">
@@ -127,8 +118,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/date"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                </com.google.android.material.textfield.TextInputEditText>
+                    android:layout_height="wrap_content"
+                    tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -137,7 +128,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/contacts"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 android:layout_marginTop="10dp"
                 card_view:layout_constraintStart_toStartOf="@+id/date_picker"
@@ -145,12 +136,8 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/email_hint"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="5dp"
-                android:hint="Email"
+                style="@style/questionnaire_field_style"
+                android:hint="@string/email"
                 card_view:layout_constraintEnd_toEndOf="@+id/date_picker"
                 card_view:layout_constraintStart_toStartOf="@+id/contacts_view"
                 card_view:layout_constraintTop_toBottomOf="@+id/contacts_view">
@@ -158,17 +145,14 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/email"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/email_repeat_hint"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="repeat Email"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginTop="5dp"
+                android:hint="@string/repeat_email"
+                style="@style/questionnaire_field_style"
                 card_view:layout_constraintEnd_toEndOf="@+id/email_hint"
                 card_view:layout_constraintStart_toStartOf="@+id/email_hint"
                 card_view:layout_constraintTop_toBottomOf="@+id/email_hint">
@@ -176,17 +160,14 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/email_repeat"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    tools:ignore="TextContrastCheck,TextContrastCheck,VisualLintTextFieldSize" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/prefix_hint"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="prefix"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginStart="5dp"
+                android:hint="@string/prefix"
+                style="@style/questionnaire_field_style"
                 card_view:layout_constraintEnd_toEndOf="@+id/email_repeat_hint"
                 card_view:layout_constraintStart_toStartOf="@+id/email_repeat_hint"
                 card_view:layout_constraintTop_toBottomOf="@+id/email_repeat_hint">
@@ -194,18 +175,15 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/prefix"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/phone_number_hint"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="5dp"
+                style="@style/questionnaire_field_style"
                 android:layout_marginBottom="10dp"
-                android:hint="phone number"
+                android:hint="@string/phone_number"
                 card_view:layout_constraintBottom_toBottomOf="parent"
                 card_view:layout_constraintEnd_toEndOf="@+id/prefix_hint"
                 card_view:layout_constraintStart_toStartOf="@+id/prefix_hint"
@@ -214,7 +192,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/phone_number"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    tools:ignore="TextContrastCheck,TextContrastCheck,VisualLintTextFieldSize" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
@@ -224,19 +203,9 @@
                 android:background="@color/tp"
                 card_view:layout_constraintEnd_toEndOf="@+id/date_picker"
                 card_view:layout_constraintStart_toStartOf="@+id/date_picker"
-                card_view:layout_constraintTop_toBottomOf="@+id/surname_hit" />
+                card_view:layout_constraintTop_toBottomOf="@+id/surname_hit"
+                tools:ignore="SpeakableTextPresentCheck,VisualLintButtonSize" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
- <!--    <com.google.android.material.button.MaterialButton-->
-<!--        android:id="@+id/choose_button"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="choose room"-->
-<!--        android:textSize="10dp"-->
-<!--        card_view:layout_constraintBottom_toBottomOf="parent"-->
-<!--        card_view:layout_constraintEnd_toEndOf="parent"-->
-<!--        card_view:layout_constraintTop_toBottomOf="@+id/constraintLayout9" />-->
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

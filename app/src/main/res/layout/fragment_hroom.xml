@@ -1,58 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.Material3.CardV"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/tp"
-    style="@style/Widget.Material3.CardV">
+    android:background="@color/tp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout5"
+        android:id="@+id/window_tab_constraint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
-            android:id="@+id/close_room"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="10dp"
+            android:id="@+id/close_hroom"
+            style="@style/window_tab_style"
+            android:layout_width="50dp"
             android:background="@color/tp"
-            app:layout_constraintBottom_toBottomOf="@+id/room_title"
+            android:contentDescription="@string/dismiss"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.111"
-            app:srcCompat="@drawable/ic_close"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+            app:srcCompat="@drawable/ic_close" />
 
         <TextView
-            android:id="@+id/room_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:id="@+id/hroom_window_tab_text"
+            style="@style/window_tab_style"
             android:gravity="center_horizontal|center_vertical"
             android:text="@string/room_reservation"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/done_room"
-            app:layout_constraintStart_toEndOf="@+id/close_room"
+            app:layout_constraintEnd_toStartOf="@+id/accept_hroom"
+            app:layout_constraintStart_toEndOf="@+id/close_hroom"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/done_room"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:id="@+id/accept_hroom"
+            style="@style/window_tab_style"
+            android:layout_width="50dp"
             android:background="@color/tp"
+            android:contentDescription="@string/accept"
             android:src="@drawable/ic_done"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck">
-
-        </ImageButton>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/adult_count_overal_text"
@@ -62,21 +54,21 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/adult_count_overal"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/close_room"
-            app:layout_constraintTop_toBottomOf="@+id/room_title"
+            app:layout_constraintStart_toEndOf="@+id/close_hroom"
+            app:layout_constraintTop_toBottomOf="@+id/hroom_window_tab_text"
             app:layout_constraintVertical_bias="0.5" />
 
         <TextView
             android:id="@+id/adult_count_overal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1/14"
             android:layout_marginEnd="5dp"
+            android:text="@string/_1_14"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/child_count_overal_text"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/adult_count_overal_text"
-            app:layout_constraintTop_toBottomOf="@+id/room_title"
+            app:layout_constraintTop_toBottomOf="@+id/hroom_window_tab_text"
             app:layout_constraintVertical_bias="0.5">
 
         </TextView>
@@ -91,7 +83,7 @@
             app:layout_constraintEnd_toStartOf="@+id/child_count_overal"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/adult_count_overal"
-            app:layout_constraintTop_toBottomOf="@+id/room_title"
+            app:layout_constraintTop_toBottomOf="@+id/hroom_window_tab_text"
             app:layout_constraintVertical_bias="0.5">
 
         </TextView>
@@ -100,25 +92,25 @@
             android:id="@+id/child_count_overal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0/13"
             android:layout_marginEnd="5dp"
+            android:text="@string/_0_13"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/all_count_text"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/child_count_overal_text"
-            app:layout_constraintTop_toBottomOf="@+id/room_title"
+            app:layout_constraintTop_toBottomOf="@+id/hroom_window_tab_text"
             app:layout_constraintVertical_bias="0.5" />
 
         <TextView
             android:id="@+id/all_count_text"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="overal"
+            android:text="@string/overal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/all_count"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/child_count_overal"
-            app:layout_constraintTop_toBottomOf="@+id/room_title"
+            app:layout_constraintTop_toBottomOf="@+id/hroom_window_tab_text"
             app:layout_constraintVertical_bias="0.5">
 
         </TextView>
@@ -128,51 +120,49 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="4dp"
-            android:text="1/14"
+            android:text="@string/_1_14"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/done_room"
+            app:layout_constraintEnd_toStartOf="@+id/accept_hroom"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/all_count_text"
-            app:layout_constraintTop_toBottomOf="@+id/room_title"
+            app:layout_constraintTop_toBottomOf="@+id/hroom_window_tab_text"
             app:layout_constraintVertical_bias="0.5" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
-        android:id="@+id/scroll"
+        android:id="@+id/hroom_scroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/constraintLayout5"
+        android:layout_below="@+id/window_tab_constraint"
+        android:background="@drawable/custom_dialog_round"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5"
-        app:layout_constraintVertical_bias="1.0"
-        android:background="@drawable/custom_dialog_round">
+        app:layout_constraintTop_toBottomOf="@+id/window_tab_constraint"
+        app:layout_constraintVertical_bias="1.0">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/room_listrecycle"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        tools:listitem="@layout/room_list"
-        android:visibility="visible"
-        tools:itemCount="4"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/hroom_room_rcview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="visible"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/window_tab_constraint"
+            tools:itemCount="4"
+            tools:listitem="@layout/room_list">
 
-    </androidx.recyclerview.widget.RecyclerView>
+        </androidx.recyclerview.widget.RecyclerView>
     </ScrollView>
-
-
     <Button
-        android:id="@+id/add_room"
+        android:id="@+id/hroom_add_room"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/scroll"
-        android:layout_alignEnd="@+id/scroll"
+        android:layout_below="@+id/hroom_scroll"
+        android:layout_alignEnd="@+id/hroom_scroll"
         android:background="@drawable/rectangle"
-        android:drawableLeft="@drawable/ic_plus"
+        android:drawableStart="@drawable/ic_plus"
         android:fontFamily="@font/droid_serif"
         android:gravity="center_vertical|end"
         android:text="@string/room"

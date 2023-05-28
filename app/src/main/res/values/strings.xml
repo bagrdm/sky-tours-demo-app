@@ -43,6 +43,7 @@
     <string name="from">"from"</string>
     <string name="to">"to"</string>
     <string name="one_more">"add one more"</string>
+    <string name="one_less">"less one"</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
@@ -213,5 +214,57 @@
     <string name="non_login">Non LogIn</string>
     <string name="save_data_in_account">Save data in your personal \naccount and you won’t have to enter \n it with each new trip. \nPlease note, that we do not\n collect credit card \nor other payment data</string>
     <string name="register_toast_enter_phone">Write yours phone number!</string>
+    <string name="_1996_2023_n_skytours_big_sky_group_n_all_rights_reserved">© 1996–2023, \n Skytours ™ Big Sky Group, \n all rights reserved</string>
+    <string name="sky_tours_company_welcomes_you">Sky tours company welcomes you</string>
+    <string name="numb_1">1</string>
+    <string name="child_age">Child age:</string>
+    <string name="completing_authorization">completing \n authorization</string>
+    <string name="sms">Enter the password which you will receive in an SMS</string>
+    <string name="sms_hint">Please, wait. Within 5 minutes you will receive a code by sms.</string>
+    <string name="authorization">Authorization</string>
+    <string name="entered_phone_number">"Entered phone number "</string>
+    <string name="next">next</string>
+    <string name="confirmation_code_will_be_sent">confirmation code will be sent to the number you specify</string>
+    <string name="cancellation_policy">cancellation policy</string>
+    <string name="the_hotel_will_charge_you_100_of_amount_paid">The hotel will charge you 100% of amount paid.</string>
+    <string name="cancellation_policies_are_based_on_date_and_time_of_destination">*Cancellation policies are based on date and time of destination.</string>
+    <string name="more_about">more about..</string>
+    <string name="city">city</string>
+    <string name="_1_january_10_january">1 january - 10 january</string>
+    <string name="guests_1">guests : 1</string>
+    <string name="hotel_name">hotel name</string>
+    <string name="address">address</string>
+    <string name="hotels_description">hotels description</string>
+    <string name="test_text">Test Text</string>
+    <string name="please_provide_your_child_s_age">Please provide your child\'s age:</string>
+    <string name="accept">Accept</string>
+    <string name="hotels_found">hotels found..</string>
+    <string name="please_wait">Please wait...</string>
+    <string name="passenger_details">passenger details</string>
+    <string name="total_price">total price:</string>
+    <string name="total_price_no_additional_surcharges_for_credit_card_payments">Total price - no additional surcharges for credit card payments!</string>
+    <string name="to_payment">to payment</string>
+    <string name="dismiss">dismiss</string>
+    <string name="_1_14">1/14</string>
+    <string name="_0_13">0/13</string>
+    <string name="overal">overal</string>
+    <string name="per_night">per night:</string>
+    <string name="us">US$</string>
+    <string name="choose">choose</string>
+    <string name="option">option</string>
+    <string name="room_1">Room 1</string>
+    <string name="male">male</string>
+    <string name="female">female</string>
+    <string name="name_on_passport">name on passport</string>
+    <string name="surname_on_passport">surname on passport</string>
+    <string name="date_of_birth">date of birth</string>
+    <string name="email">Email</string>
+    <string name="repeat_email">repeat Email</string>
+    <string name="prefix">prefix</string>
+    <string name="phone_number">phone number</string>
+    <string name="standard_double_or_twin_room_with_extra_bed">Standard Double or Twin Room with Extra Bed</string>
+    <string name="room_only">Room only</string>
+    <string name="guests">Guests:</string>
+    <string name="x_1">x 1</string>
 
 </resources>

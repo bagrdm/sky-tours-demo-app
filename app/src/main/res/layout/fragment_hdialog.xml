@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/rectangle2"
     android:backgroundTint="@color/tp">
+<!--    tools:context=".presentation.ui.fragments.search.hotels.hrooms.HDialogFragment"-->
 
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
@@ -22,13 +23,13 @@
 
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/materialTextView"
+                android:id="@+id/hdialog_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="30dp"
-                android:text="Please provide your child's age:"
+                android:text="@string/please_provide_your_child_s_age"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -36,48 +37,50 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageButton
-                android:id="@+id/more"
+                android:id="@+id/hdialog_more"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="20dp"
                 android:background="@color/tp"
                 android:src="@android:drawable/arrow_up_float"
-                app:layout_constraintEnd_toEndOf="@+id/materialTextView"
-                app:layout_constraintStart_toStartOf="@+id/materialTextView"
-                app:layout_constraintTop_toBottomOf="@+id/materialTextView" />
+                app:layout_constraintEnd_toEndOf="@+id/hdialog_text"
+                app:layout_constraintStart_toStartOf="@+id/hdialog_text"
+                app:layout_constraintTop_toBottomOf="@+id/hdialog_text"
+                android:contentDescription="@string/one_more" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/age_view"
+                android:id="@+id/hdialog_age_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/zero"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/more"
-                app:layout_constraintStart_toStartOf="@+id/more"
-                app:layout_constraintTop_toBottomOf="@+id/more" />
+                app:layout_constraintEnd_toEndOf="@+id/hdialog_more"
+                app:layout_constraintStart_toStartOf="@+id/hdialog_more"
+                app:layout_constraintTop_toBottomOf="@+id/hdialog_more" />
 
             <ImageButton
-                android:id="@+id/less"
+                android:id="@+id/hdialog_less"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
                 android:background="@color/tp"
                 android:src="@android:drawable/arrow_down_float"
-                app:layout_constraintEnd_toEndOf="@+id/age_view"
-                app:layout_constraintStart_toStartOf="@+id/age_view"
-                app:layout_constraintTop_toBottomOf="@+id/age_view" />
+                app:layout_constraintEnd_toEndOf="@+id/hdialog_age_view"
+                app:layout_constraintStart_toStartOf="@+id/hdialog_age_view"
+                app:layout_constraintTop_toBottomOf="@+id/hdialog_age_view"
+                android:contentDescription="@string/one_less" />
 
             <Button
-                android:id="@+id/accept"
+                android:id="@+id/hdialog_accept"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="10dp"
-                android:text="Accept"
+                android:text="@string/accept"
                 android:backgroundTint="@color/teal_main"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/less" />
+                app:layout_constraintTop_toBottomOf="@+id/hdialog_less" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

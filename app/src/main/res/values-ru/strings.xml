@@ -93,6 +93,17 @@
     <string name="profile">Profile</string>
     <string name="non_login">Non LogIn</string>
     <string name="save_data_in_account">Save data in your personal \naccount and you won’t have to enter \n it with each new trip. \nPlease note, that we do not\n collect credit card \nor other payment data</string>
+    <string name="_1996_2023_n_skytours_big_sky_group_n_all_rights_reserved">© 1996-2023, \\n Skytours ™ Big Sky Group, \\n все права защищены</string>
+    <string name="sky_tours_company_welcomes_you">Sky tours company welcomes you</string>
+    <string name="numb_1">1</string>
+    <string name="child_age">Возраст ребенка</string>
+    <string name="completing_authorization">Завершение авторизации</string>
+    <string name="sms">Введите код, полученный в SMS</string>
+    <string name="sms_hint">пожалуйста, подождите. SMS придет в течении минуты..</string>
+    <string name="authorization">Авторизация \n пользователя</string>
+    <string name="next">далее</string>
+    <string name="entered_phone_number">Введите номер телефона</string>
+    <string name="confirmation_code_will_be_sent">на указанный вами номер \n будет выслан код подтвержения</string>
 
 
 </resources>
