@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/child_age_text"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:elevation="10dp"
+        android:gravity="left|center_vertical"
+        android:paddingStart="10dp"
+        android:text="@string/child_age"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/child_age_text"
+        app:layout_constraintTop_toBottomOf="@+id/child_age_text">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/child_age_numb_rcview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollbars="horizontal"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/child_age_text"
+            tools:itemCount="17"
+            tools:listitem="@layout/numb_of_age_list">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </HorizontalScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

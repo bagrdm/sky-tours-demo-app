@@ -2,4 +2,5 @@
 <resources>
     <string name="zero">0</string>
     <string name="one">1</string>
+    <string name="numb_1">1</string>
 </resources>

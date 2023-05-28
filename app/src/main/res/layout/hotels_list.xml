@@ -14,22 +14,6 @@
     card_view:cardCornerRadius="15dp"
     card_view:contentPadding="1dp">
 
-    <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent">-->
-
-    <!--        <ImageView-->
-    <!--            android:id="@+id/icon_frame"-->
-    <!--            android:layout_marginLeft="5dp"-->
-    <!--            android:layout_width="25dp"-->
-    <!--            android:layout_height="25dp"-->
-    <!--            android:layout_alignParentBottom="true"-->
-    <!--            card_view:layout_constraintBottom_toBottomOf="parent"-->
-    <!--            card_view:layout_constraintStart_toStartOf="parent"-->
-    <!--            card_view:layout_constraintTop_toTopOf="parent">-->
-    <!--        </ImageView>-->
-
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -49,11 +33,13 @@
             android:layout_marginStart="12dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
+            android:importantForAccessibility="no"
             android:src="@drawable/custom_dialog_round"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="parent"
-            card_view:layout_constraintVertical_bias="0.083" />
+            card_view:layout_constraintVertical_bias="0.083"
+            tools:ignore="ImageContrastCheck" />
 
         <TextView
             android:id="@+id/hotel_title"
@@ -63,14 +49,15 @@
             android:layout_marginEnd="5dp"
             android:foregroundGravity="left"
             android:gravity="clip_vertical"
-            android:text="Title"
+            android:text="@string/hotel_name"
             android:textColor="@color/gray_main"
             android:textSize="13sp"
             android:textStyle="bold"
             card_view:layout_constraintEnd_toStartOf="@+id/textView10"
             card_view:layout_constraintHorizontal_bias="0.0"
             card_view:layout_constraintStart_toEndOf="@+id/hotels_preview"
-            card_view:layout_constraintTop_toTopOf="@+id/hotels_preview" />
+            card_view:layout_constraintTop_toTopOf="@+id/hotels_preview"
+            tools:ignore="TextContrastCheck" />
 
         <RatingBar
             android:id="@+id/ratingBar"
@@ -88,7 +75,8 @@
             android:backgroundTint="@color/gray_main"
             android:src="@drawable/ic_location"
             card_view:layout_constraintStart_toStartOf="@+id/hotels_preview"
-            card_view:layout_constraintTop_toBottomOf="@+id/hotels_preview" />
+            card_view:layout_constraintTop_toBottomOf="@+id/hotels_preview"
+            android:importantForAccessibility="no" />
 
         <TextView
             android:id="@+id/small_description_field"
@@ -100,14 +88,15 @@
             android:marqueeRepeatLimit="marquee_forever"
             android:scrollHorizontally="true"
             android:singleLine="true"
-            android:text="description"
-            android:textSize="8dp"
+            android:text="@string/address"
+            android:textSize="8sp"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="@+id/hotels_preview"
             card_view:layout_constraintHorizontal_bias="0.0"
             card_view:layout_constraintStart_toEndOf="@+id/imageView3"
             card_view:layout_constraintTop_toBottomOf="@+id/hotels_preview"
-            card_view:layout_constraintVertical_bias="0.0" />
+            card_view:layout_constraintVertical_bias="0.0"
+            tools:ignore="SmallSp" />
 
         <TextView
             android:id="@+id/big_description_field"
@@ -119,7 +108,7 @@
             android:focusable="true"
             android:maxLines="6"
             android:scrollbars="vertical"
-            android:text="more_description"
+            android:text="@string/hotels_description"
             android:textSize="10sp"
             android:layout_marginEnd="5dp"
             android:layout_marginStart="5dp"
@@ -129,7 +118,8 @@
             card_view:layout_constraintHorizontal_bias="0.0"
             card_view:layout_constraintStart_toEndOf="@+id/hotels_preview"
             card_view:layout_constraintTop_toBottomOf="@+id/ratingBar"
-            card_view:layout_constraintVertical_bias="0.023" />
+            card_view:layout_constraintVertical_bias="0.023"
+            tools:ignore="SmallSp" />
 
 
         <TextView
@@ -137,7 +127,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="per night:"
+            android:text="@string/per_night"
             card_view:layout_constraintEnd_toEndOf="@+id/button"
             card_view:layout_constraintStart_toStartOf="@+id/button"
             card_view:layout_constraintTop_toTopOf="parent" />
@@ -147,7 +137,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="US$"
+            android:text="@string/us"
             android:textSize="15sp"
             android:textStyle="bold"
             card_view:layout_constraintBottom_toBottomOf="@+id/price"
@@ -162,7 +152,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
-            android:text="15.65"
+            android:text="@string/zero"
             android:textSize="15sp"
             android:textStyle="bold"
             card_view:layout_constraintEnd_toEndOf="@+id/button"
@@ -174,23 +164,25 @@
             android:id="@+id/total_price_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="total price:"
+            android:text="@string/total_price"
             android:textSize="10sp"
             card_view:layout_constraintEnd_toEndOf="@+id/button"
             card_view:layout_constraintStart_toStartOf="@+id/button"
-            card_view:layout_constraintTop_toBottomOf="@+id/price" />
+            card_view:layout_constraintTop_toBottomOf="@+id/price"
+            tools:ignore="SmallSp" />
 
         <TextView
             android:id="@+id/currency2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="US$"
+            android:text="@string/us"
             android:textSize="10sp"
             card_view:layout_constraintBottom_toTopOf="@+id/button"
             card_view:layout_constraintStart_toStartOf="@+id/button"
             card_view:layout_constraintTop_toTopOf="@+id/total_price"
-            card_view:layout_constraintVertical_bias="0.0">
+            card_view:layout_constraintVertical_bias="0.0"
+            tools:ignore="SmallSp">
 
         </TextView>
 
@@ -199,12 +191,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
-            android:text="156.50"
+            android:text="@string/zero"
             android:textSize="10sp"
             card_view:layout_constraintEnd_toEndOf="@+id/button"
             card_view:layout_constraintHorizontal_bias="0.0"
             card_view:layout_constraintStart_toEndOf="@+id/currency2"
-            card_view:layout_constraintTop_toBottomOf="@+id/total_price_title">
+            card_view:layout_constraintTop_toBottomOf="@+id/total_price_title"
+            tools:ignore="SmallSp">
 
         </TextView>
 
@@ -213,28 +206,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
-            android:text="choose"
+            android:text="@string/choose"
             android:textSize="10sp"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@+id/total_price" />
-        <!--            <TextView-->
-        <!--                android:id="@+id/locate_field"-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:foregroundGravity="left"-->
-        <!--                android:gravity="center|center_vertical"-->
-        <!--                android:text=""-->
-        <!--                android:textColor="@color/gray_m"-->
-        <!--                android:textSize="15sp"-->
-        <!--                android:textStyle="normal"-->
-        <!--                android:layout_marginTop="5dp"-->
-        <!--                android:layout_marginBottom="5dp"-->
-        <!--                card_view:layout_constraintBottom_toBottomOf="parent"-->
-        <!--                card_view:layout_constraintStart_toStartOf="@+id/cities_field"-->
-        <!--                card_view:layout_constraintTop_toBottomOf="@+id/cities_field"-->
-        <!--                card_view:layout_constraintVertical_bias="0.0">-->
+            card_view:layout_constraintTop_toBottomOf="@+id/total_price"
+            tools:ignore="SmallSp,TextContrastCheck" />
 
-        <!--            </TextView>-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
