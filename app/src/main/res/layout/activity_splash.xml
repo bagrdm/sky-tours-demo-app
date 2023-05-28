@@ -6,66 +6,71 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    app:layoutDescription="@xml/activity_splash_scene"
-    tools:context=".presentation.ui.activities.SplashActivity">
+    app:layoutDescription="@xml/activity_splash_scene">
+<!--    tools:context=".presentation.ui.activities.SplashActivity"-->
 
     <ImageView
-        android:id="@+id/logo_shadow"
+        android:id="@+id/activity_splash_logo_shadow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:alpha="0.2"
+        android:importantForAccessibility="no"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/logo_air"
-        app:srcCompat="@drawable/logofull_white_shadow" />
+        app:layout_constraintTop_toTopOf="@+id/activity_splash_logo_air"
+        app:srcCompat="@drawable/logofull_white_shadow"
+        tools:ignore="ImageContrastCheck" />
 
     <ImageView
-        android:id="@+id/logo_text"
+        android:id="@+id/activity_splash_logo_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logotext" />
-
-
+        app:srcCompat="@drawable/logotext"
+        tools:ignore="ImageContrastCheck"
+        android:contentDescription="@string/sky_tours_company_welcomes_you" />
 
     <ImageView
-        android:id="@+id/logo_air"
+        android:id="@+id/activity_splash_logo_air"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logoair"
-        tools:visibility="invisible" />
+        tools:visibility="invisible"
+        android:importantForAccessibility="no" />
 
     <ImageView
-        android:id="@+id/logo_plane"
+        android:id="@+id/activity_splash_logo_plane"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="276dp"
-        app:layout_constraintEnd_toEndOf="@+id/logo_text"
+        app:layout_constraintEnd_toEndOf="@+id/activity_splash_logo_text"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/logo_text"
+        app:layout_constraintStart_toStartOf="@+id/activity_splash_logo_text"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logoplane" />
+        app:srcCompat="@drawable/logoplane"
+        android:importantForAccessibility="no" />
 
     <TextView
-        android:id="@+id/big_group_text"
+        android:id="@+id/activity_splash_big_group_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:gravity="center"
-        android:text="© 1996-2023, \n Skytours ™ Big Sky Group, \n all rights reserved"
-        android:textSize="12dp"
+        android:text="@string/_1996_2023_n_skytours_big_sky_group_n_all_rights_reserved"
+        android:textSize="12sp"
         android:textStyle="italic|bold"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="VisualLintOverlap" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout8"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/activity_splash_white_card"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
@@ -74,10 +79,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/big_group"
+        android:id="@+id/activity_splash_big_sky_group_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/big"
@@ -87,17 +92,5 @@
         app:layout_constraintHorizontal_bias="0.858"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="326dp" />
-
-
-<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--        android:id="@+id/constraintLayout8"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:background="@color/white"-->
-<!--        android:visibility="invisible"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"/>-->
 
 </androidx.constraintlayout.motion.widget.MotionLayout>
