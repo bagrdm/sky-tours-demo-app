@@ -63,12 +63,6 @@ class SearchFragment : Fragment() {
 
             override fun onTabReselected(tab: TabLayout.Tab?) {}
         })
-
-        fun replace(fragment: Fragment) {
-            fm.commit {
-                replace(container, fragment)
-            }
-        }
     }
 
     override fun onDestroyView() {
