@@ -17,9 +17,9 @@
         android:title="@string/trips" />
 
 
-    <item
-        android:id="@+id/settings"
-        android:icon="@drawable/ic_settings_selector"
-        android:title="@string/settings" />
+<!--    <item-->
+<!--        android:id="@+id/settings"-->
+<!--        android:icon="@drawable/ic_settings_selector"-->
+<!--        android:title="@string/settings" />-->
 
 </menu>
