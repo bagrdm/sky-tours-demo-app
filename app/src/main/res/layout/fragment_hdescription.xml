@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/tp"
-    tools:context=".presentation.ui.fragments.search.hotels.hdescription.HQuestionnaireFragment">
+    android:background="@color/tp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout5"
