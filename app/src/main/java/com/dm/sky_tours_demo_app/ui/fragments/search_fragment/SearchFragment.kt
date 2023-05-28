@@ -11,6 +11,7 @@ import com.dm.sky_tours_demo_app.databinding.FragmentSearchBinding
 import com.dm.sky_tours_demo_app.ui.fragments.cars_fragment.CarsFragment
 import com.dm.sky_tours_demo_app.ui.fragments.flight_fragment.FlightFragment
 import com.dm.sky_tours_demo_app.ui.fragments.hotels_fragment.HotelsFragment
+import com.dm.sky_tours_demo_app.ui.fragments.hotelsnflight_fragment.HotelsNFlightFragment
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 
@@ -37,10 +38,6 @@ class SearchFragment : Fragment() {
 
     private fun setupNavigation() {
 
-        val hotels = HotelsFragment()
-        val flight = FlightFragment()
-        val cars = CarsFragment()
-
         val fm = childFragmentManager
         val container = R.id.fragment_container
 
@@ -51,11 +48,18 @@ class SearchFragment : Fragment() {
         }
 
         binding.tabLayout.addOnTabSelectedListener(object : OnTabSelectedListener {
+
+            val hotels = HotelsFragment()
+            val flight = FlightFragment()
+            val cars = CarsFragment()
+            val hotelsnflight = HotelsNFlightFragment()
+
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                when (tab?.position) {
-                    0 -> switch(hotels)
-                    1 -> switch(flight)
-                    2 -> switch(cars)
+                when (tab?.text) {
+                    getString(R.string.hotels) -> switch(hotels)
+                    getString(R.string.flight) -> switch(flight)
+                    getString(R.string.cars) -> switch(cars)
+                    getString(R.string.hotelnflight) -> switch(hotelsnflight)
                 }
             }
 
