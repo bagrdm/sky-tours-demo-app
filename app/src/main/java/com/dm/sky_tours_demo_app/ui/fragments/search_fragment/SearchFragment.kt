@@ -37,33 +37,38 @@ class SearchFragment : Fragment() {
 
     private fun setupNavigation() {
 
+        val hotels = HotelsFragment()
+        val flight = FlightFragment()
+        val cars = CarsFragment()
+
         val fm = childFragmentManager
         val container = R.id.fragment_container
+
+        fun switch(fragment: Fragment) {
+            fm.commit {
+                replace(container, fragment)
+            }
+        }
 
         binding.tabLayout.addOnTabSelectedListener(object : OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 when (tab?.position) {
-                    0 -> fm.commit {
-                        replace(container, HotelsFragment())
-                    }
-
-                    1 ->
-                        fm.commit {
-                            replace(container, FlightFragment())
-                        }
-
-                    2 -> fm.commit {
-                        replace(container, CarsFragment())
-                    }
+                    0 -> switch(hotels)
+                    1 -> switch(flight)
+                    2 -> switch(cars)
                 }
             }
 
-            override fun onTabUnselected(tab: TabLayout.Tab?) {
-            }
+            override fun onTabUnselected(tab: TabLayout.Tab?) {}
 
-            override fun onTabReselected(tab: TabLayout.Tab?) {
-            }
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
         })
+
+        fun replace(fragment: Fragment) {
+            fm.commit {
+                replace(container, fragment)
+            }
+        }
     }
 
     override fun onDestroyView() {
