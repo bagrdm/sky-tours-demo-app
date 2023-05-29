@@ -42,11 +42,12 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="20dp"
                 android:background="@color/tp"
+                android:contentDescription="@string/one_more"
                 android:src="@android:drawable/arrow_up_float"
                 app:layout_constraintEnd_toEndOf="@+id/hdialog_text"
                 app:layout_constraintStart_toStartOf="@+id/hdialog_text"
                 app:layout_constraintTop_toBottomOf="@+id/hdialog_text"
-                android:contentDescription="@string/one_more" />
+                tools:ignore="TouchTargetSizeCheck" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/hdialog_age_view"
@@ -68,7 +69,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/hdialog_age_view"
                 app:layout_constraintStart_toStartOf="@+id/hdialog_age_view"
                 app:layout_constraintTop_toBottomOf="@+id/hdialog_age_view"
-                android:contentDescription="@string/one_less" />
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
             <Button
                 android:id="@+id/hdialog_accept"
