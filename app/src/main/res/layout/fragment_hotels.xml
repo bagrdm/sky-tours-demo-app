@@ -3,279 +3,330 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fr_container_hotels"
-    android:background="@color/tp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <!--    tools:context=".presentation.ui.fragments.search.hotels.HotelsFragment"-->
+    android:layout_height="match_parent"
+    android:background="@color/tp">
+    <!--        tools:context=".presentation.ui.fragments.search.hotels.HotelsFragment"-->
 
-    <!--    <androidx.cardview.widget.CardView-->
-    <!--        android:id="@+id/cardView"-->
-    <!--        android:layout_width="0dp"-->
-    <!--        android:layout_height="0dp"-->
-    <!--        android:layout_marginStart="5dp"-->
-    <!--        android:layout_marginTop="0dp"-->
-    <!--        android:layout_marginEnd="5dp"-->
-    <!--        android:layout_marginBottom="5dp"-->
-    <!--        app:cardElevation="0dp"-->
-    <!--        android:alpha="0.8"-->
-    <!--        android:backgroundTint="@color/tp"-->
-    <!--        android:background="@color/tp"-->
-    <!--        app:cardCornerRadius="10dp"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent"-->
-    <!--        app:layout_constraintVertical_bias="0.0">-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/hotels_destination_constraint"
+        android:elevation="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/rectangle_constraint"
+        android:layout_marginTop="10dp">
 
-    <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
-    <!--            android:id="@+id/fr_container2"-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="match_parent">-->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/hotels_search_city"
+            style="@style/Widget.MaterialComponents.AutoCompleteTextView.FilledBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="textAutoComplete"
+            android:elegantTextHeight="true"
+            android:elevation="5dp"
+            android:focusable="true"
+            android:gravity="start|center_vertical"
+            android:hint="@string/destinations"
+            android:includeFontPadding="false"
+            android:paddingTop="15dp"
+            android:shadowColor="@color/gray_main"
+            android:singleLine="true"
+            android:textColorHint="@color/gray_m"
+            android:textSize="19sp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/progressBar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TouchTargetSizeCheck" />
 
-    <!--                <com.google.android.material.textview.MaterialTextView-->
-    <!--                    android:id="@+id/open_search"-->
-    <!--                    style="@style/Widget.MaterialComponents.AutoCompleteTextView.FilledBox"-->
-    <!--                    android:layout_width="match_parent"-->
-    <!--                    android:layout_height="wrap_content"-->
-    <!--                    android:layout_marginStart="10dp"-->
-    <!--                    android:layout_marginEnd="10dp"-->
-    <!--                    android:elevation="5dp"-->
-    <!--                    android:elegantTextHeight="true"-->
-    <!--                    android:background="@drawable/rectangle2"-->
-    <!--                    android:focusable="false"-->
-    <!--                    android:gravity="start|center_vertical"-->
-    <!--                    android:hint="@string/destinations"-->
-    <!--                    android:includeFontPadding="false"-->
-    <!--                    android:paddingTop="15dp"-->
-    <!--                    android:singleLine="true"-->
-    <!--                    android:shadowColor="@color/gray_main"-->
-    <!--                    android:textColorHint="@color/gray_m"-->
-    <!--                    android:textSize="19sp"-->
-    <!--                    tools:ignore="TouchTargetSizeCheck"-->
-    <!--                    android:layout_marginTop="10dp"-->
-    <!--                    app:layout_constraintEnd_toEndOf="parent"-->
-    <!--                    app:layout_constraintStart_toStartOf="parent"-->
-    <!--                    app:layout_constraintTop_toTopOf="parent"/>-->
+        <TextView
+            android:id="@+id/destination_search_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/teal_main"
+            android:textColorHighlight="@color/teal_main"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:visibility="visible"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/hotels_search_city"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/hotels_search_city" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/destination_search_hint"
+            app:layout_constraintEnd_toEndOf="@+id/destination_search_hint"
+            app:layout_constraintTop_toTopOf="@+id/destination_search_hint" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/hotels_search_constraint"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@id/hotels_destination_constraint"
+                app:layout_constraintStart_toStartOf="@id/hotels_destination_constraint"
+                app:layout_constraintTop_toBottomOf="@+id/hotels_destination_constraint"
+                style="@style/rectangle_constraint">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/hotels_location_icon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:src="@drawable/ic_location"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/text_locate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/search_near"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/hotels_location_icon"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/text_hlocate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/detect_location"
+                    android:textColor="@color/gray_main"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/hotels_location_icon"
+                    app:layout_constraintTop_toBottomOf="@+id/text_locate">
+                </TextView>
+
+                <TextView
+                    android:id="@+id/maybe_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/maybe_u_mean"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    android:textColor="@color/gray_main"
+                    app:layout_constraintHorizontal_bias="0.465"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_hlocate" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/destination_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginBottom="10dp"
+                    android:scrollbars="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/maybe_field"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:itemCount="15"
+                    tools:listitem="@layout/destinations_list">
+
+                </androidx.recyclerview.widget.RecyclerView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <!--            <androidx.constraintlayout.widget.ConstraintLayout-->
-    <!--                android:id="@+id/constraintLayout2"-->
-    <!--                android:layout_width="match_parent"-->
-    <!--                android:layout_height="50dp"-->
-    <!--                android:layout_marginLeft="10dp"-->
-    <!--                android:layout_marginTop="10dp"-->
-    <!--                android:layout_marginRight="10dp"-->
-    <!--                android:elevation="5dp"-->
-    <!--                android:background="@drawable/rectangle2"-->
-    <!--                app:layout_constraintEnd_toEndOf="parent"-->
-    <!--                app:layout_constraintStart_toStartOf="parent"-->
-    <!--                app:layout_constraintTop_toBottomOf="@+id/open_search">-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout2"
+                style="@style/rectangle_constraint"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:elevation="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/hotels_search_constraint">
 
-    <!--                <com.google.android.material.imageview.ShapeableImageView-->
-    <!--                    android:id="@+id/imageView4"-->
-    <!--                    android:layout_width="wrap_content"-->
-    <!--                    android:layout_height="wrap_content"-->
-    <!--                    android:layout_marginStart="5dp"-->
-    <!--                    android:src="@drawable/ic_calendar"-->
-    <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--                    app:layout_constraintStart_toStartOf="parent"-->
-    <!--                    app:layout_constraintTop_toTopOf="parent">-->
-    <!--                </com.google.android.material.imageview.ShapeableImageView>-->
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:src="@drawable/ic_calendar"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
 
-    <!--                <Button-->
-    <!--                    android:id="@+id/button_dates"-->
-    <!--                    android:layout_width='match_parent'-->
-    <!--                    android:layout_height="0dp"-->
-    <!--                    android:layout_marginStart="4dp"-->
-    <!--                    android:layout_marginEnd="5dp"-->
-    <!--                    android:background="@color/tp"-->
-    <!--                    android:text=" "-->
-    <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--                    app:layout_constraintEnd_toEndOf="parent"-->
-    <!--                    app:layout_constraintHorizontal_bias="0.0"-->
-    <!--                    app:layout_constraintStart_toEndOf="@+id/imageView4"-->
-    <!--                    app:layout_constraintTop_toTopOf="parent"-->
-    <!--                    app:layout_constraintVertical_bias="0.0"-->
-    <!--                    tools:ignore="HardcodedText,SpeakableTextPresentCheck" />-->
+                <Button
+                    android:id="@+id/button_dates"
+                    android:layout_width='match_parent'
+                    android:layout_height="0dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@color/tp"
+                    android:text=" "
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/imageView4"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:ignore="HardcodedText,SpeakableTextPresentCheck" />
 
-    <!--                <TextView-->
-    <!--                    android:id="@+id/tfrom"-->
-    <!--                    android:layout_width="100dp"-->
-    <!--                    android:layout_height="0dp"-->
-    <!--                    android:layout_marginStart="10dp"-->
-    <!--                    android:gravity="center"-->
-    <!--                    android:hint="@string/from"-->
-    <!--                    android:textSize="16sp"-->
-    <!--                    app:layout_constraintBottom_toBottomOf="@+id/button_dates"-->
-    <!--                    app:layout_constraintStart_toEndOf="@+id/imageView4"-->
-    <!--                    app:layout_constraintTop_toTopOf="parent"-->
-    <!--                    app:layout_constraintVertical_bias="0.0" />-->
+                <TextView
+                    android:id="@+id/tfrom"
+                    android:layout_width="100dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="10dp"
+                    android:gravity="center"
+                    android:hint="@string/from"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/button_dates"
+                    app:layout_constraintStart_toEndOf="@+id/imageView4"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
 
-    <!--                <TextView-->
-    <!--                    android:id="@+id/tto"-->
-    <!--                    android:layout_width="100dp"-->
-    <!--                    android:layout_height="0dp"-->
-    <!--                    android:layout_marginEnd="10dp"-->
-    <!--                    android:gravity="center"-->
-    <!--                    android:hint="@string/to"-->
-    <!--                    android:textSize="16sp"-->
-    <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--                    app:layout_constraintEnd_toEndOf="parent"-->
-    <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+                <TextView
+                    android:id="@+id/tto"
+                    android:layout_width="100dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center"
+                    android:hint="@string/to"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-    <!--                <com.google.android.material.imageview.ShapeableImageView-->
-    <!--                    android:id="@+id/imageView5"-->
-    <!--                    android:layout_width="18dp"-->
-    <!--                    android:layout_height="0dp"-->
-    <!--                    android:src="@drawable/ic_arrow_right"-->
-    <!--                    android:layout_marginStart="5dp"-->
-    <!--                    android:layout_marginEnd="5dp"-->
-    <!--                    app:layout_constraintBottom_toBottomOf="@+id/button_dates"-->
-    <!--                    app:layout_constraintEnd_toStartOf="@+id/tto"-->
-    <!--                    app:layout_constraintStart_toEndOf="@+id/tfrom"-->
-    <!--                    app:layout_constraintTop_toTopOf="parent"-->
-    <!--                    app:layout_constraintVertical_bias="1.0"-->
-    <!--                    tools:ignore="MissingConstraints" />-->
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="18dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:src="@drawable/ic_arrow_right"
+                    app:layout_constraintBottom_toBottomOf="@+id/button_dates"
+                    app:layout_constraintEnd_toStartOf="@+id/tto"
+                    app:layout_constraintStart_toEndOf="@+id/tfrom"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0"
+                    tools:ignore="MissingConstraints" />
 
-    <!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!--            <androidx.constraintlayout.widget.ConstraintLayout-->
-    <!--                android:id="@+id/room"-->
-    <!--                android:layout_width="match_parent"-->
-    <!--                android:layout_height="wrap_content"-->
-    <!--                android:layout_marginLeft="5dp"-->
-    <!--                android:layout_marginRight="5dp"-->
-    <!--                app:layout_constraintEnd_toEndOf="parent"-->
-    <!--                app:layout_constraintStart_toStartOf="parent"-->
-    <!--                app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/room"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
 
-    <!--                <ImageButton-->
-    <!--                    android:id="@+id/buttonroom"-->
-    <!--                    style="@style/ThemeOverlay.Material3.AutoCompleteTextView.FilledBox"-->
-    <!--                    android:layout_width="match_parent"-->
-    <!--                    android:layout_height="50dp"-->
-    <!--                    android:layout_marginTop="10dp"-->
-    <!--                    android:background="@color/tp"-->
-    <!--                    android:text=""-->
-    <!--                    app:layout_constraintEnd_toEndOf="parent"-->
-    <!--                    app:layout_constraintHorizontal_bias="0.0"-->
-    <!--                    app:layout_constraintStart_toStartOf="parent"-->
-    <!--                    app:layout_constraintTop_toTopOf="parent"-->
-    <!--                    tools:ignore="SpeakableTextPresentCheck" />-->
+                <ImageButton
+                    android:id="@+id/buttonroom"
+                    style="@style/ThemeOverlay.Material3.AutoCompleteTextView.FilledBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/tp"
+                    android:text=""
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="SpeakableTextPresentCheck"
+                    android:contentDescription="@string/add_adults_or_childrens" />
 
-    <!--                <TextView-->
-    <!--                    android:id="@+id/viewadult"-->
-    <!--                    android:layout_width="wrap_content"-->
-    <!--                    android:layout_height="0dp"-->
-    <!--                    android:gravity="center"-->
-    <!--                    android:text="@string/adult"-->
-    <!--                    android:textColor="@color/black"-->
-    <!--                    android:textSize="16sp"-->
-    <!--                    android:layout_marginStart="30sp"-->
-    <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--                    app:layout_constraintStart_toStartOf="parent"-->
-    <!--                    app:layout_constraintTop_toTopOf="@+id/buttonroom" />-->
+                <TextView
+                    android:id="@+id/viewadult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="30sp"
+                    android:gravity="center"
+                    android:text="@string/adult"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/buttonroom" />
 
-    <!--                <TextView-->
-    <!--                    android:id="@+id/viewchild"-->
-    <!--                    android:layout_width="wrap_content"-->
-    <!--                    android:layout_height="0dp"-->
-    <!--                    android:gravity="center"-->
-    <!--                    android:text="@string/children"-->
-    <!--                    android:textColor="@color/black"-->
-    <!--                    android:textSize="16sp"-->
-    <!--                    android:layout_marginEnd="30sp"-->
-    <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--                    app:layout_constraintEnd_toEndOf="@+id/buttonroom"-->
-    <!--                    app:layout_constraintTop_toTopOf="@+id/buttonroom" />-->
+                <TextView
+                    android:id="@+id/viewchild"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="30sp"
+                    android:gravity="center"
+                    android:text="@string/children"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/buttonroom"
+                    app:layout_constraintTop_toTopOf="@+id/buttonroom" />
 
-    <!--                <TextView-->
-    <!--                    android:id="@+id/adults_hotels_text"-->
-    <!--                    android:layout_width="40sp"-->
-    <!--                    android:layout_height="0dp"-->
-    <!--                    android:background="@drawable/rectangle2"-->
-    <!--                    android:gravity="center"-->
-    <!--                    android:text="@string/zero"-->
-    <!--                    android:elevation="2dp"-->
-    <!--                    android:textSize="20sp"-->
-    <!--                    android:layout_marginStart="10sp"-->
-    <!--                    android:layout_marginBottom="5dp"-->
-    <!--                    app:layout_constraintBottom_toBottomOf="@+id/buttonroom"-->
-    <!--                    app:layout_constraintStart_toEndOf="@+id/viewadult"-->
-    <!--                    app:layout_constraintTop_toTopOf="@+id/buttonroom"-->
-    <!--                    app:layout_constraintVertical_bias="1.0" />-->
+                <TextView
+                    android:id="@+id/adults_hotels_text"
+                    android:layout_width="40sp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="10sp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/rectangle2"
+                    android:elevation="2dp"
+                    android:gravity="center"
+                    android:text="@string/zero"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/buttonroom"
+                    app:layout_constraintStart_toEndOf="@+id/viewadult"
+                    app:layout_constraintTop_toTopOf="@+id/buttonroom"
+                    app:layout_constraintVertical_bias="1.0" />
 
-    <!--                <TextView-->
-    <!--                    android:id="@+id/childrens_hotels_text"-->
-    <!--                    android:layout_width="40sp"-->
-    <!--                    android:layout_height="0dp"-->
-    <!--                    android:background="@drawable/rectangle2"-->
-    <!--                    android:gravity="center"-->
-    <!--                    android:text="@string/zero"-->
-    <!--                    android:elevation="2dp"-->
-    <!--                    android:textSize="20sp"-->
-    <!--                    android:layout_marginBottom="5dp"-->
-    <!--                    android:layout_marginEnd="10sp"-->
-    <!--                    app:layout_constraintBottom_toBottomOf="@+id/buttonroom"-->
-    <!--                    app:layout_constraintEnd_toStartOf="@+id/viewchild"-->
-    <!--                    app:layout_constraintTop_toTopOf="@+id/buttonroom" />-->
+                <TextView
+                    android:id="@+id/childrens_hotels_text"
+                    android:layout_width="40sp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="10sp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/rectangle2"
+                    android:elevation="2dp"
+                    android:gravity="center"
+                    android:text="@string/zero"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/buttonroom"
+                    app:layout_constraintEnd_toStartOf="@+id/viewchild"
+                    app:layout_constraintTop_toTopOf="@+id/buttonroom" />
 
-    <!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!--            <androidx.constraintlayout.widget.ConstraintLayout-->
-    <!--                android:id="@+id/constraintLayout4"-->
-    <!--                android:layout_width="0dp"-->
-    <!--                android:layout_height="0dp"-->
-    <!--                android:layout_marginLeft="5dp"-->
-    <!--                android:layout_marginRight="5dp"-->
-    <!--                app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--                app:layout_constraintEnd_toEndOf="parent"-->
-    <!--                app:layout_constraintStart_toStartOf="parent"-->
-    <!--                app:layout_constraintTop_toBottomOf="@+id/room" >-->
+            <Button
+                android:id="@+id/search_hotels_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:elevation="5dp"
+                android:text="@string/search"
+                app:layout_constraintEnd_toEndOf="@+id/room"
+                app:layout_constraintTop_toBottomOf="@+id/room">
 
-    <!--                <Button-->
-    <!--                    android:id="@+id/search_hotels_button"-->
-    <!--                    android:layout_width="wrap_content"-->
-    <!--                    android:layout_height="wrap_content"-->
-    <!--                    android:text="@string/search"-->
-    <!--                    android:elevation="5dp"-->
-    <!--                    app:layout_constraintEnd_toEndOf="parent"-->
-    <!--                    app:layout_constraintTop_toTopOf="parent">-->
+            </Button>
 
-    <!--                </Button>-->
-    <!--&lt;!&ndash;                <ScrollView&ndash;&gt;-->
-    <!--&lt;!&ndash;                    android:id="@+id/nest"&ndash;&gt;-->
-    <!--&lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
-    <!--&lt;!&ndash;                    android:layout_height="match_parent"&ndash;&gt;-->
-    <!--&lt;!&ndash;                    app:layout_constraintBottom_toBottomOf="parent"&ndash;&gt;-->
-    <!--&lt;!&ndash;                    app:layout_constraintEnd_toEndOf="@+id/constraintLayout4"&ndash;&gt;-->
-    <!--&lt;!&ndash;                    app:layout_constraintStart_toStartOf="@+id/constraintLayout4"&ndash;&gt;-->
-    <!--&lt;!&ndash;                    app:layout_constraintTop_toTopOf="parent">&ndash;&gt;-->
-
-    <!--&lt;!&ndash;                    <androidx.constraintlayout.widget.ConstraintLayout&ndash;&gt;-->
-    <!--&lt;!&ndash;                        android:layout_width="match_parent"&ndash;&gt;-->
-    <!--&lt;!&ndash;                        android:layout_height="wrap_content">&ndash;&gt;-->
-
-    <!--&lt;!&ndash;                        <androidx.cardview.widget.CardView&ndash;&gt;-->
-    <!--&lt;!&ndash;                            android:id="@+id/cardView2"&ndash;&gt;-->
-    <!--&lt;!&ndash;                            android:layout_width="match_parent"&ndash;&gt;-->
-    <!--&lt;!&ndash;                            android:layout_height="650dp"&ndash;&gt;-->
-    <!--&lt;!&ndash;                            app:layout_constraintBottom_toBottomOf="parent"&ndash;&gt;-->
-    <!--&lt;!&ndash;                            app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
-    <!--&lt;!&ndash;                            app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
-    <!--&lt;!&ndash;                            app:layout_constraintTop_toTopOf="parent">&ndash;&gt;-->
-
-    <!--&lt;!&ndash;&lt;!&ndash;                            <androidx.fragment.app.FragmentContainerView&ndash;&gt;&ndash;&gt;-->
-    <!--&lt;!&ndash;&lt;!&ndash;                                android:layout_width="match_parent"&ndash;&gt;&ndash;&gt;-->
-    <!--&lt;!&ndash;&lt;!&ndash;                                android:layout_height="match_parent">&ndash;&gt;&ndash;&gt;-->
-
-    <!--&lt;!&ndash;&lt;!&ndash;                            </androidx.fragment.app.FragmentContainerView>&ndash;&gt;&ndash;&gt;-->
-
-    <!--&lt;!&ndash;                        </androidx.cardview.widget.CardView>&ndash;&gt;-->
-    <!--&lt;!&ndash;                    </androidx.constraintlayout.widget.ConstraintLayout>&ndash;&gt;-->
-    <!--&lt;!&ndash;                </ScrollView>&ndash;&gt;-->
-    <!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
-    <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
-    <!--    </androidx.cardview.widget.CardView>-->
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>

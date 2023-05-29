@@ -42,8 +42,6 @@
     <string name="date">"date"</string>
     <string name="from">"from"</string>
     <string name="to">"to"</string>
-    <string name="one_more">"add one more"</string>
-    <string name="one_less">"less one"</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
@@ -225,46 +223,47 @@
     <string name="entered_phone_number">"Entered phone number "</string>
     <string name="next">next</string>
     <string name="confirmation_code_will_be_sent">confirmation code will be sent to the number you specify</string>
-    <string name="cancellation_policy">cancellation policy</string>
-    <string name="the_hotel_will_charge_you_100_of_amount_paid">The hotel will charge you 100% of amount paid.</string>
-    <string name="cancellation_policies_are_based_on_date_and_time_of_destination">*Cancellation policies are based on date and time of destination.</string>
-    <string name="more_about">more about..</string>
-    <string name="city">city</string>
-    <string name="_1_january_10_january">1 january - 10 january</string>
-    <string name="guests_1">guests : 1</string>
-    <string name="hotel_name">hotel name</string>
-    <string name="address">address</string>
-    <string name="hotels_description">hotels description</string>
-    <string name="test_text">Test Text</string>
-    <string name="please_provide_your_child_s_age">Please provide your child\'s age:</string>
-    <string name="accept">Accept</string>
-    <string name="hotels_found">hotels found..</string>
-    <string name="please_wait">Please wait...</string>
-    <string name="passenger_details">passenger details</string>
-    <string name="total_price">total price:</string>
-    <string name="total_price_no_additional_surcharges_for_credit_card_payments">Total price - no additional surcharges for credit card payments!</string>
-    <string name="to_payment">to payment</string>
-    <string name="dismiss">dismiss</string>
-    <string name="_1_14">1/14</string>
-    <string name="_0_13">0/13</string>
-    <string name="overal">overal</string>
-    <string name="per_night">per night:</string>
-    <string name="us">US$</string>
-    <string name="choose">choose</string>
-    <string name="option">option</string>
-    <string name="room_1">Room 1</string>
-    <string name="male">male</string>
-    <string name="female">female</string>
-    <string name="name_on_passport">name on passport</string>
-    <string name="surname_on_passport">surname on passport</string>
-    <string name="date_of_birth">date of birth</string>
-    <string name="email">Email</string>
-    <string name="repeat_email">repeat Email</string>
-    <string name="prefix">prefix</string>
-    <string name="phone_number">phone number</string>
-    <string name="standard_double_or_twin_room_with_extra_bed">Standard Double or Twin Room with Extra Bed</string>
-    <string name="room_only">Room only</string>
-    <string name="guests">Guests:</string>
-    <string name="x_1">x 1</string>
+    <string name="cancellation_policy" translatable="false">cancellation policy</string>
+    <string name="the_hotel_will_charge_you_100_of_amount_paid" translatable="false">The hotel will charge you 100% of amount paid.</string>
+    <string name="cancellation_policies_are_based_on_date_and_time_of_destination" translatable="false">*Cancellation policies are based on date and time of destination.</string>
+    <string name="more_about" translatable="false">more about..</string>
+    <string name="city" translatable="false">city</string>
+    <string name="_1_january_10_january" translatable="false">1 january - 10 january</string>
+    <string name="guests_1" translatable="false">guests : 1</string>
+    <string name="hotel_name" translatable="false">hotel name</string>
+    <string name="address" translatable="false">address</string>
+    <string name="hotels_description" translatable="false">hotels description</string>
+    <string name="test_text" translatable="false">Test Text</string>
+    <string name="please_provide_your_child_s_age" translatable="false">Please provide your child\'s age:</string>
+    <string name="accept" translatable="false">Accept</string>
+    <string name="hotels_found" translatable="false">hotels found..</string>
+    <string name="please_wait" translatable="false">Please wait...</string>
+    <string name="passenger_details" translatable="false">passenger details</string>
+    <string name="total_price" translatable="false">total price:</string>
+    <string name="total_price_no_additional_surcharges_for_credit_card_payments" translatable="false">Total price - no additional surcharges for credit card payments!</string>
+    <string name="to_payment" translatable="false">to payment</string>
+    <string name="dismiss" translatable="false">dismiss</string>
+    <string name="_1_14" translatable="false">1/14</string>
+    <string name="_0_13" translatable="false">0/13</string>
+    <string name="overal" translatable="false">overal</string>
+    <string name="per_night" translatable="false">per night:</string>
+    <string name="us" translatable="false">US$</string>
+    <string name="choose" translatable="false">choose</string>
+    <string name="option" translatable="false">option</string>
+    <string name="room_1" translatable="false">Room 1</string>
+    <string name="male" translatable="false">male</string>
+    <string name="female" translatable="false">female</string>
+    <string name="name_on_passport" translatable="false">name on passport</string>
+    <string name="surname_on_passport" translatable="false">surname on passport</string>
+    <string name="date_of_birth" translatable="false">date of birth</string>
+    <string name="email" translatable="false">Email</string>
+    <string name="repeat_email" translatable="false">repeat Email</string>
+    <string name="prefix" translatable="false">prefix</string>
+    <string name="phone_number" translatable="false">phone number</string>
+    <string name="standard_double_or_twin_room_with_extra_bed" translatable="false">Standard Double or Twin Room with Extra Bed</string>
+    <string name="room_only" translatable="false">Room only</string>
+    <string name="guests" translatable="false">Guests:</string>
+    <string name="x_1" translatable="false">x 1</string>
+    <string name="add_adults_or_childrens" translatable="false">add adults or childrens</string>
 
 </resources>
