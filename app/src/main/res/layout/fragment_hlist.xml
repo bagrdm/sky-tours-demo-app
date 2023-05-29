@@ -2,75 +2,80 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/tp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/tp"
     tools:context=".presentation.ui.fragments.search.hotels.hlist.HListFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout5"
-        android:layout_width="match_parent"
-        android:layout_height="47dp"
+    <ImageButton
+        android:id="@+id/close_hlist"
+        style="@style/window_tab_style"
+        android:backgroundTint="@color/tp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/hlist_window_tab_text"
+        app:srcCompat="@drawable/ic_close"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/hlist_window_tab_text"
+        style="@style/window_tab_style"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/hotels_found"
+        android:textSize="20sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toStartOf="@+id/accept_hlist"
+        app:layout_constraintStart_toEndOf="@+id/close_hlist"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/accept_hlist"
+        style="@style/window_tab_style"
+        android:backgroundTint="@color/tp"
+        android:src="@drawable/ic_done"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+    <ProgressBar
+        android:id="@+id/hlist_progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:indeterminateBehavior="cycle"
+        android:indeterminateOnly="true"
+        android:indeterminateTint="@color/teal_main"
+        android:indeterminateTintMode="src_in"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/hlist_window_tab_text" />
 
-        <ImageButton
-            android:id="@+id/close_hlist"
-            android:layout_width="32dp"
-            android:layout_height="match_parent"
-            android:backgroundTint="@color/tp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageView7"
-            app:srcCompat="@drawable/ic_close"
-            tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+    <TextView
+        android:id="@+id/hlist_wait_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/please_wait"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/hlist_progressBar"
+        app:layout_constraintStart_toStartOf="@+id/hlist_progressBar"
+        app:layout_constraintTop_toBottomOf="@+id/hlist_progressBar" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/imageView7"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:gravity="center_horizontal|center_vertical"
-            android:text="hotels found.."
-            android:textSize="20sp"
-            android:textStyle="bold|italic"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/accept_hlist"
-            app:layout_constraintStart_toEndOf="@+id/close_hlist"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageButton
-            android:id="@+id/accept_hlist"
-            android:layout_width="32dp"
-            android:layout_height="match_parent"
-            android:backgroundTint="@color/tp"
-            android:src="@drawable/ic_done"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ContentDescription,SpeakableTextPresentCheck">
-
-        </ImageButton>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/rectangle2"
-        android:layout_marginBottom="5dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        app:layout_constraintEnd_toEndOf="@id/constraintLayout5"
-        app:layout_constraintStart_toStartOf="@id/constraintLayout5"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hlist_wait_text">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/hotels_list"
+            android:id="@+id/hlist_hotels_list_rcview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
             android:scrollbars="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -80,38 +85,9 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             tools:itemCount="15"
-            tools:listitem="@layout/hotels_list">
-        </androidx.recyclerview.widget.RecyclerView>
+            tools:listitem="@layout/hotels_list" />
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/hotels_list"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:indeterminate="true"
-            android:indeterminateBehavior="cycle"
-            android:indeterminateOnly="true"
-            android:indeterminateTint="@color/teal_main"
-            android:indeterminateTintMode="src_in"/>
-
-        <TextView
-            android:id="@+id/wait"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Please wait..."
-            android:textStyle="bold"
-            android:textSize="15dp"
-            app:layout_constraintEnd_toEndOf="@+id/progressBar"
-            app:layout_constraintStart_toStartOf="@+id/progressBar"
-            app:layout_constraintTop_toBottomOf="@+id/progressBar" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

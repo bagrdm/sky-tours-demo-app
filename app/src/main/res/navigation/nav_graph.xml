@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/home">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.dm.sky_tours_demo_app.ui.fragments.search_fragment.SearchFragment"
+        android:label="SearchFragment" />
+    <fragment
+        android:id="@+id/info"
+        android:name="com.dm.sky_tours_demo_app.ui.fragments.info_fragment.InfoFragment"
+        android:label="InfoFragment" />
+    <fragment
+        android:id="@+id/trips"
+        android:name="com.dm.sky_tours_demo_app.ui.fragments.trips_fragment.TripsFragment"
+        android:label="TripsFragment" />
+</navigation>
