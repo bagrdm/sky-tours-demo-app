@@ -22,6 +22,7 @@
         <item name="labelTextSize">20sp</item>
         <item name="fromToTextSize">16sp</item>
 
+        <item name="defaultHW">48dp</item>
         <item name="defaultMargin">8dp</item>
         <item name="doubleMargin">16dp</item>
 

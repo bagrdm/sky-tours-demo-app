@@ -7,6 +7,8 @@
     <attr name="labelTextSize" format="dimension"/>
     <attr name="fromToTextSize" format="dimension"/>
 
+    <attr name="defaultHW" format="dimension"/>
+
     <attr name="defaultMargin" format="dimension"/>
     <attr name="doubleMargin" format="dimension"/>
 
