@@ -181,7 +181,6 @@
         app:layout_constraintTop_toTopOf="@+id/adults_hotels_text"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/adults_hotels_text"
         android:layout_width="40sp"

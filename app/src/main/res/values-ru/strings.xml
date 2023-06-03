@@ -87,6 +87,7 @@
     <string name="zero">0</string>
     <string name="one">1</string>
     <string name="one_more">добавить еще одну</string>
+    <string name="one_less">убрать одну</string>
     <string name="detect_location">(определение местоположения)</string>
     <string name="maybe_u_mean">Возможно, вы имели ввиду:</string>
     <string name="Detect_location">(определение местоположения)</string>

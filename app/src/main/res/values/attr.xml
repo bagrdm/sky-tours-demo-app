@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Colors -->
+    <attr name="labelColor" format="color" />
+
+    <!-- Dimensions -->
+    <attr name="labelTextSize" format="dimension"/>
+    <attr name="fromToTextSize" format="dimension"/>
+
+    <attr name="defaultMargin" format="dimension"/>
+    <attr name="doubleMargin" format="dimension"/>
+
+</resources>
