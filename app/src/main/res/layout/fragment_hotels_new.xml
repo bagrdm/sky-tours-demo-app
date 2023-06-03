@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     style="@style/BaseConstraintContainerStyle">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_container"
+        android:id="@+id/destinations_container"
         style="?attr/textInputOutlinedStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,7 +33,7 @@
         android:layout_height="?attr/defaultHW"
         android:layout_margin="?attr/defaultMargin"
         android:background="@drawable/rectangle_small_radius"
-        app:layout_constraintTop_toBottomOf="@id/text_container" />
+        app:layout_constraintTop_toBottomOf="@id/destinations_container" />
 
     <ImageView
         android:id="@+id/calendar_img"
@@ -46,7 +47,7 @@
 
     <TextView
         android:id="@+id/field_from"
-       style="@style/FromToStyle"
+        style="@style/FromToStyle"
         android:text="@string/from"
         app:layout_constraintBottom_toBottomOf="@id/calendar_img"
         app:layout_constraintEnd_toStartOf="@id/arrow"
@@ -107,8 +108,28 @@
         app:layout_constraintTop_toBottomOf="@id/from_to_container" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/hotels_search_button"
         style="@style/SearchButtonStyle"
         app:layout_constraintEnd_toEndOf="@id/from_to_container"
         app:layout_constraintTop_toBottomOf="@id/children_count" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:id="@+id/destinations_rv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/destinations_container"
+        app:layout_constraintStart_toStartOf="@id/destinations_container"
+        app:layout_constraintTop_toBottomOf="@id/destinations_container"
+        tools:itemCount="5"
+        tools:listitem="@layout/destinations_list_new" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/main_group"
+        android:visibility="visible"
+        app:constraint_referenced_ids="arrow, calendar_img, field_from, field_to, from_to_container, adult_count, adult_label, children_count, children_label, hotels_search_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
