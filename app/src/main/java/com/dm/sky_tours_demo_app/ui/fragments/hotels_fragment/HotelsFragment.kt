@@ -53,10 +53,10 @@ class HotelsFragment : Fragment(R.layout.fragment_hotels_new) {
         setupRV()
         setupCitiesObserver()
         setupTextChangedListener()
+        setupCityNameObserver()
     }
 
     private fun setupTextChangedListener() {
-
         binding.inputDestinations.doAfterTextChanged { text ->
             val query = text.toString()
 
@@ -73,7 +73,6 @@ class HotelsFragment : Fragment(R.layout.fragment_hotels_new) {
     }
 
     private fun setupCitiesObserver() {
-
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.cities.collect {
@@ -95,8 +94,24 @@ class HotelsFragment : Fragment(R.layout.fragment_hotels_new) {
         }
     }
 
+    private fun setupCityNameObserver() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.currentCity.collect {
+                    binding.inputDestinations.setText(it)
+                }
+            }
+        }
+    }
+
+    private fun getCityName(cityName: String) {
+        viewModel.setCurrentCity(cityName)
+        viewModel.clearCities()
+        binding.inputDestinations.clearFocus()
+    }
+
     private fun setupRV() {
-        destinationsAdapter = DestinationsAdapter()
+        destinationsAdapter = DestinationsAdapter(::getCityName)
 
         val decorator =
             DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL).apply {

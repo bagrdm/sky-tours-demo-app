@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dm.sky_tours_demo_app.databinding.DestinationsListNewBinding
 import com.dm.sky_tours_demo_app.domain.models.SearchCity
 
-class DestinationsAdapter() :
+class DestinationsAdapter(private val getCityName: (String) -> Unit) :
     ListAdapter<SearchCity, DestinationsAdapter.DestinationsViewHolder>(itemComparator) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DestinationsViewHolder {
@@ -18,7 +18,15 @@ class DestinationsAdapter() :
             false
         )
 
-        return DestinationsViewHolder(binding)
+        val holder = DestinationsViewHolder(binding)
+
+        binding.cityContainer.setOnClickListener {
+            val text = currentList[holder.adapterPosition].name
+
+            getCityName(text)
+        }
+
+        return holder
     }
 
     override fun onBindViewHolder(holder: DestinationsViewHolder, position: Int) {

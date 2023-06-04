@@ -15,6 +15,9 @@ class HotelsViewModel @Inject constructor(
     private val getCitiesUseCase: GetCitiesUseCase
 ) : ViewModel() {
 
+    private val _currentCity = MutableStateFlow("")
+    val currentCity: StateFlow<String> get() = _currentCity
+
     private val _cities = MutableStateFlow<List<SearchCity>>(emptyList())
     val cities: StateFlow<List<SearchCity>> get() = _cities
 
@@ -23,6 +26,10 @@ class HotelsViewModel @Inject constructor(
             val list = getCitiesUseCase.invoke(text)
             _cities.emit(list)
         }
+    }
+
+    fun setCurrentCity(cityName: String) {
+        _currentCity.value = cityName
     }
 
     fun clearCities() {
