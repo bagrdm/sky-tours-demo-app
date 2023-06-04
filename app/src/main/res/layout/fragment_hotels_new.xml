@@ -20,6 +20,9 @@
         app:startIconDrawable="@drawable/ic_search_24dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:inputType="textCapSentences"
+            android:maxLines="1"
+            android:imeOptions="actionDone"
             android:id="@+id/input_destinations"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -118,7 +121,7 @@
         android:id="@+id/destinations_rv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="@id/destinations_container"
         app:layout_constraintStart_toStartOf="@id/destinations_container"
         app:layout_constraintTop_toBottomOf="@id/destinations_container"

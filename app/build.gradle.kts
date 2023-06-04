@@ -60,6 +60,8 @@ dependencies {
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
 
+    implementation(libs.lifecycle.viemodel.ktx)
+
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
