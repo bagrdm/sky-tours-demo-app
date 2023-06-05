@@ -43,7 +43,7 @@
     <string name="from">"from"</string>
     <string name="to">"to"</string>
     <string name="one_more">"add one more"</string>
-    <string name="one_less" translatable="false">"less one"</string>
+    <string name="one_less">"less one"</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="hotelnflight">Hotel + Flight</string>

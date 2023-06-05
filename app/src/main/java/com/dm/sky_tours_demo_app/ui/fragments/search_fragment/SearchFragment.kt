@@ -14,7 +14,9 @@ import com.dm.sky_tours_demo_app.ui.fragments.hotels_fragment.HotelsFragment
 import com.dm.sky_tours_demo_app.ui.fragments.hotelsnflight_fragment.HotelsNFlightFragment
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SearchFragment : Fragment() {
 
     private var _binding: FragmentSearchBinding? = null

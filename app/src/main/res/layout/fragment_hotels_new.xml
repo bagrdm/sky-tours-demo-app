@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/BaseConstraintContainerStyle">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/destinations_container"
+        style="?attr/textInputOutlinedStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="?attr/defaultMargin"
+        android:hint="@string/destinations"
+        app:boxBackgroundColor="@color/white"
+        app:counterEnabled="true"
+        app:counterMaxLength="50"
+        app:errorEnabled="true"
+        app:helperText="@string/entered_3_or_more_symbols"
+        app:layout_constraintTop_toTopOf="parent"
+        app:startIconDrawable="@drawable/ic_search_24dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:inputType="textCapSentences"
+            android:maxLines="1"
+            android:imeOptions="actionDone"
+            android:id="@+id/input_destinations"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="?attr/labelTextSize" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/from_to_container"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/defaultHW"
+        android:layout_margin="?attr/defaultMargin"
+        android:background="@drawable/rectangle_small_radius"
+        app:layout_constraintTop_toBottomOf="@id/destinations_container" />
+
+    <ImageView
+        android:id="@+id/calendar_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="?attr/defaultMargin"
+        android:src="@drawable/ic_calendar"
+        app:layout_constraintBottom_toBottomOf="@id/from_to_container"
+        app:layout_constraintStart_toStartOf="@id/from_to_container"
+        app:layout_constraintTop_toTopOf="@id/from_to_container" />
+
+    <TextView
+        android:id="@+id/field_from"
+        style="@style/FromToStyle"
+        android:text="@string/from"
+        app:layout_constraintBottom_toBottomOf="@id/calendar_img"
+        app:layout_constraintEnd_toStartOf="@id/arrow"
+        app:layout_constraintStart_toEndOf="@id/calendar_img"
+        app:layout_constraintTop_toTopOf="@id/calendar_img" />
+
+    <ImageView
+        android:id="@+id/arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrow_right"
+        app:layout_constraintBottom_toBottomOf="@id/calendar_img"
+        app:layout_constraintEnd_toEndOf="@id/field_to"
+        app:layout_constraintStart_toEndOf="@id/field_from"
+        app:layout_constraintTop_toTopOf="@id/calendar_img" />
+
+    <TextView
+        android:id="@+id/field_to"
+        style="@style/FromToStyle"
+        android:text="@string/to"
+        app:layout_constraintBottom_toBottomOf="@id/calendar_img"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/arrow"
+        app:layout_constraintTop_toTopOf="@id/calendar_img" />
+
+    <TextView
+        android:id="@+id/adult_label"
+        style="@style/LabelText"
+        android:text="@string/adult"
+        app:layout_constraintBottom_toBottomOf="@id/adult_count"
+        app:layout_constraintEnd_toStartOf="@id/adult_count"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/adult_count" />
+
+    <TextView
+        android:id="@+id/adult_count"
+        style="@style/CountViewStyle"
+        android:text="@string/zero"
+        app:layout_constraintEnd_toStartOf="@id/children_label"
+        app:layout_constraintStart_toEndOf="@id/adult_label"
+        app:layout_constraintTop_toBottomOf="@id/from_to_container" />
+
+    <TextView
+        android:id="@+id/children_label"
+        style="@style/LabelText"
+        android:text="@string/children"
+        app:layout_constraintBottom_toBottomOf="@id/children_count"
+        app:layout_constraintEnd_toStartOf="@id/children_count"
+        app:layout_constraintStart_toEndOf="@id/adult_count"
+        app:layout_constraintTop_toTopOf="@id/children_count" />
+
+    <TextView
+        android:id="@+id/children_count"
+        style="@style/CountViewStyle"
+        android:text="@string/zero"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/children_label"
+        app:layout_constraintTop_toBottomOf="@id/from_to_container" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/hotels_search_button"
+        style="@style/SearchButtonStyle"
+        app:layout_constraintEnd_toEndOf="@id/from_to_container"
+        app:layout_constraintTop_toBottomOf="@id/children_count" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:id="@+id/destinations_rv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@id/destinations_container"
+        app:layout_constraintStart_toStartOf="@id/destinations_container"
+        app:layout_constraintTop_toBottomOf="@id/destinations_container"
+        tools:itemCount="5"
+        tools:listitem="@layout/destinations_list_new" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/main_group"
+        android:visibility="visible"
+        app:constraint_referenced_ids="arrow, calendar_img, field_from, field_to, from_to_container, adult_count, adult_label, children_count, children_label, hotels_search_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
