@@ -1,11 +1,13 @@
 package com.dm.sky_tours_demo_app.ui
 
+import android.content.DialogInterface
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.dm.sky_tours_demo_app.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -26,4 +28,16 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
         bottomNavigationView.setupWithNavController(navController)
     }
+
+    override fun onBackPressed() {
+        MaterialAlertDialogBuilder(this)
+            .setIcon(R.drawable.icon_app)
+            .setTitle(R.string.exit)
+            .setMessage(R.string.question_exit)
+            .setPositiveButton(
+                R.string.possitive,
+                DialogInterface.OnClickListener { dialog, which -> finish() })
+            .setNegativeButton(R.string.negative, null)
+            .show()
+    } //Выход
 }

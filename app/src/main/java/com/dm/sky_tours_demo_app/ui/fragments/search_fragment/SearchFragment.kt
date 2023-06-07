@@ -50,7 +50,6 @@ class SearchFragment : Fragment() {
         }
 
         binding.tabLayout.addOnTabSelectedListener(object : OnTabSelectedListener {
-
             val hotels = HotelsFragment()
             val flight = FlightFragment()
             val cars = CarsFragment()
@@ -64,9 +63,7 @@ class SearchFragment : Fragment() {
                     getString(R.string.hotelnflight) -> switch(hotelsnflight)
                 }
             }
-
             override fun onTabUnselected(tab: TabLayout.Tab?) {}
-
             override fun onTabReselected(tab: TabLayout.Tab?) {}
         })
     }

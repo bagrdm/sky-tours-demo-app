@@ -20,12 +20,12 @@
         app:startIconDrawable="@drawable/ic_search_24dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:inputType="textCapSentences"
-            android:maxLines="1"
-            android:imeOptions="actionDone"
             android:id="@+id/input_destinations"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:imeOptions="actionDone"
+            android:inputType="textCapSentences"
+            android:maxLines="1"
             android:textSize="?attr/labelTextSize" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -117,22 +117,23 @@
         app:layout_constraintTop_toBottomOf="@id/children_count" />
 
     <androidx.recyclerview.widget.RecyclerView
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:id="@+id/destinations_rv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:visibility="visible"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="@id/destinations_container"
         app:layout_constraintStart_toStartOf="@id/destinations_container"
         app:layout_constraintTop_toBottomOf="@id/destinations_container"
         tools:itemCount="5"
-        tools:listitem="@layout/destinations_list_new" />
+        tools:listitem="@layout/destinations_list_new"
+        tools:visibility="gone" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/main_group"
-        android:visibility="visible"
-        app:constraint_referenced_ids="arrow, calendar_img, field_from, field_to, from_to_container, adult_count, adult_label, children_count, children_label, hotels_search_button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:constraint_referenced_ids="arrow, calendar_img, field_from, field_to, from_to_container, adult_count, adult_label, children_count, children_label, hotels_search_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
