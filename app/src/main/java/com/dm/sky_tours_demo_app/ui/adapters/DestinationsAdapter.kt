@@ -6,10 +6,10 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.dm.sky_tours_demo_app.databinding.DestinationsListNewBinding
-import com.dm.sky_tours_demo_app.domain.models.SearchCity
+import com.dm.sky_tours_demo_app.domain.models.City
 
-class DestinationsAdapter(private val getCity: (SearchCity) -> Unit) :
-    ListAdapter<SearchCity, DestinationsAdapter.DestinationsViewHolder>(itemComparator) {
+class DestinationsAdapter(private val getCity: (City) -> Unit) :
+    ListAdapter<City, DestinationsAdapter.DestinationsViewHolder>(itemComparator) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DestinationsViewHolder {
         val binding = DestinationsListNewBinding.inflate(
@@ -37,18 +37,18 @@ class DestinationsAdapter(private val getCity: (SearchCity) -> Unit) :
         private val binding: DestinationsListNewBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: SearchCity) {
+        fun bind(item: City) {
             binding.cityName.text = item.name
         }
     }
 }
 
-private val itemComparator = object : DiffUtil.ItemCallback<SearchCity>() {
-    override fun areItemsTheSame(oldItem: SearchCity, newItem: SearchCity): Boolean {
+private val itemComparator = object : DiffUtil.ItemCallback<City>() {
+    override fun areItemsTheSame(oldItem: City, newItem: City): Boolean {
         return oldItem.name == newItem.name
     }
 
-    override fun areContentsTheSame(oldItem: SearchCity, newItem: SearchCity): Boolean {
+    override fun areContentsTheSame(oldItem: City, newItem: City): Boolean {
         return oldItem == newItem
     }
 }

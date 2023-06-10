@@ -18,7 +18,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dm.sky_tours_demo_app.R
 import com.dm.sky_tours_demo_app.databinding.FragmentHotelsNewBinding
-import com.dm.sky_tours_demo_app.domain.models.SearchCity
+import com.dm.sky_tours_demo_app.domain.models.City
 import com.dm.sky_tours_demo_app.ui.adapters.DestinationsAdapter
 import com.dm.sky_tours_demo_app.ui.fragments.hotelslist_fragment.HotelsListFragment
 import com.dm.sky_tours_demo_app.ui.fragments.rooms_fragment.RoomsFragment
@@ -114,7 +114,7 @@ class HotelsFragment : Fragment() {
         }
     }
 
-    private fun getCity(city: SearchCity) {
+    private fun getCity(city: City) {
         viewModel.setCurrentCity(city)
         viewModel.clearCities()
         binding.inputDestinations.clearFocus()

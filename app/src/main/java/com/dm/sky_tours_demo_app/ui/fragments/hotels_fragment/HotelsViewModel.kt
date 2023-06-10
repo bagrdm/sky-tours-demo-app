@@ -2,7 +2,7 @@ package com.dm.sky_tours_demo_app.ui.fragments.hotels_fragment
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.dm.sky_tours_demo_app.domain.models.SearchCity
+import com.dm.sky_tours_demo_app.domain.models.City
 import com.dm.sky_tours_demo_app.domain.usecases.GetCitiesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -12,14 +12,14 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HotelsViewModel @Inject constructor(
-    private val getCitiesUseCase: GetCitiesUseCase
+    private val getCitiesUseCase: GetCitiesUseCase,
 ) : ViewModel() {
 
-    private val _currentCity = MutableStateFlow(SearchCity())
-    val currentCity: StateFlow<SearchCity> get() = _currentCity
+    private val _currentCity = MutableStateFlow(City())
+    val currentCity: StateFlow<City> get() = _currentCity
 
-    private val _cities = MutableStateFlow<List<SearchCity>>(emptyList())
-    val cities: StateFlow<List<SearchCity>> get() = _cities
+    private val _cities = MutableStateFlow<List<City>>(emptyList())
+    val cities: StateFlow<List<City>> get() = _cities
 
     fun getCities(text: String) {
         viewModelScope.launch {
@@ -28,7 +28,7 @@ class HotelsViewModel @Inject constructor(
         }
     }
 
-    fun setCurrentCity(city: SearchCity) {
+    fun setCurrentCity(city: City) {
         _currentCity.value = city
     }
 
