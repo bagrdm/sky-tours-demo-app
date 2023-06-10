@@ -4,7 +4,6 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class ResponseCities(
-    @field:Json(name = "response")
-    val cities: List<ApiCity>
+data class ApiLocation(
+    @field:Json(name = "address") val address: String,
 )

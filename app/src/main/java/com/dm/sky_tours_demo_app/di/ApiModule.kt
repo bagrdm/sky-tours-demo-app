@@ -1,8 +1,14 @@
 package com.dm.sky_tours_demo_app.di
 
-import com.dm.sky_tours_demo_app.data.HotelsRepositoryImpl
+import com.dm.sky_tours_demo_app.data.api.ApiConst.BASE_URL
+import com.dm.sky_tours_demo_app.data.api.repositories.CitiesRepositoryImpl
+import com.dm.sky_tours_demo_app.data.api.ApiConst.CITIES_URL
 import com.dm.sky_tours_demo_app.data.api.CitiesApi
+import com.dm.sky_tours_demo_app.data.api.HotelsApi
 import com.dm.sky_tours_demo_app.data.api.model.mappers.CityMapper
+import com.dm.sky_tours_demo_app.data.api.model.mappers.HotelMapper
+import com.dm.sky_tours_demo_app.data.api.repositories.HotelsRepositoryImpl
+import com.dm.sky_tours_demo_app.domain.repository.CitiesRepository
 import com.dm.sky_tours_demo_app.domain.repository.HotelsRepository
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import com.squareup.moshi.Moshi
@@ -46,9 +52,9 @@ object ApiModule {
 
     @Singleton
     @Provides
-    fun provideApi(okHttpClient: OkHttpClient, moshi: Moshi): CitiesApi {
+    fun provideCitiesApi(okHttpClient: OkHttpClient, moshi: Moshi): CitiesApi {
         return Retrofit.Builder()
-            .baseUrl("https://cp.sky-tours.com/")
+            .baseUrl(CITIES_URL)
             .client(okHttpClient)
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
@@ -57,10 +63,30 @@ object ApiModule {
 
     @Singleton
     @Provides
-    fun provideHotelsRepository(
+    fun provideHotelsApi(okHttpClient: OkHttpClient, moshi: Moshi): HotelsApi {
+        return Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .client(okHttpClient)
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
+            .build()
+            .create(HotelsApi::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideCitiesRepository(
         citiesApi: CitiesApi,
         cityMapper: CityMapper
+    ): CitiesRepository {
+        return CitiesRepositoryImpl(citiesApi, cityMapper)
+    }
+
+    @Singleton
+    @Provides
+    fun providesHotelsRepository(
+        hotelsApi: HotelsApi,
+        hotelsMapper: HotelMapper
     ): HotelsRepository {
-        return HotelsRepositoryImpl(citiesApi, cityMapper)
+        return HotelsRepositoryImpl(hotelsApi, hotelsMapper)
     }
 }
