@@ -17,8 +17,12 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.dm.sky_tours_demo_app.R
 import com.dm.sky_tours_demo_app.databinding.FragmentHotelsNewBinding
 import com.dm.sky_tours_demo_app.ui.adapters.DestinationsAdapter
+import com.dm.sky_tours_demo_app.ui.fragments.hotelslist_fragment.HotelsListFragment
+import com.dm.sky_tours_demo_app.ui.fragments.rooms_fragment.RoomsFragment
+import com.dm.sky_tours_demo_app.ui.fragments.switchFragment
 import com.google.android.material.datepicker.MaterialDatePicker
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
@@ -27,9 +31,8 @@ import kotlinx.coroutines.withContext
 import limitRange
 import java.text.SimpleDateFormat
 
-
 @AndroidEntryPoint
-class HotelsFragment : Fragment(com.dm.sky_tours_demo_app.R.layout.fragment_hotels_new) {
+class HotelsFragment : Fragment() {
 
     private val viewModel: HotelsViewModel by viewModels()
 
@@ -60,8 +63,7 @@ class HotelsFragment : Fragment(com.dm.sky_tours_demo_app.R.layout.fragment_hote
         setupTextChangedListener()
         setupCityNameObserver()
         setupDatePickerDialog()
-        openHotelsRoom()
-        openHotelsList()
+        setupNavigationButtonsListeners()
     }
 
     private fun setupTextChangedListener() {
@@ -124,7 +126,11 @@ class HotelsFragment : Fragment(com.dm.sky_tours_demo_app.R.layout.fragment_hote
         val decorator =
             DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL).apply {
                 val drawable = ResourcesCompat
-                    .getDrawable(resources, com.dm.sky_tours_demo_app.R.drawable.decorator, requireActivity().theme) ?: return
+                    .getDrawable(
+                        resources,
+                        R.drawable.decorator,
+                        requireActivity().theme
+                    ) ?: return
                 setDrawable(drawable)
             }
 
@@ -133,6 +139,7 @@ class HotelsFragment : Fragment(com.dm.sky_tours_demo_app.R.layout.fragment_hote
             destinationsRv.adapter = destinationsAdapter
         }
     }
+
     private fun setupDatePickerDialog() = with(binding) {
         fromToContainer.setOnClickListener {
             val builderRange = MaterialDatePicker.Builder.dateRangePicker()
@@ -172,38 +179,22 @@ class HotelsFragment : Fragment(com.dm.sky_tours_demo_app.R.layout.fragment_hote
         }
     }
 
-    private fun openHotelsRoom()= with(binding){
-        val roomGroup = listOf(adultLabel,adultCount,childrenLabel,childrenCount)
-        val clickListener = View.OnClickListener {
-            val fragment =
-                HotelsRoomFragment()
-            val fragmentTransaction: FragmentTransaction =
-                requireFragmentManager().beginTransaction()
-            fragmentTransaction.replace(
-                com.dm.sky_tours_demo_app.R.id.fragment_container,
-                fragment
-            )
-            fragmentTransaction.addToBackStack(null)
-            fragmentTransaction.commit()
-        }
-        roomGroup.forEach { view ->
-            view.setOnClickListener(clickListener)
+    private fun setupNavigationButtonsListeners() {
+
+        val fm = parentFragmentManager
+        val container = R.id.fragment_container
+
+        with(binding) {
+
+            hotelsSearchButton.setOnClickListener {
+                switchFragment(fm, container, HotelsListFragment())
+            }
+
+            hiddenButton.setOnClickListener {
+                switchFragment(fm, container, RoomsFragment())
+            }
         }
     }
-   private fun openHotelsList()= with(binding){
-       hotelsSearchButton.setOnClickListener {
-           val fragment =
-               HotelsListFragment()
-           val fragmentTransaction: FragmentTransaction =
-               requireFragmentManager().beginTransaction()
-           fragmentTransaction.replace(
-               com.dm.sky_tours_demo_app.R.id.fragment_container,
-               fragment
-           )
-           fragmentTransaction.addToBackStack(null)
-           fragmentTransaction.commit()
-       }
-   }
 
     override fun onDestroy() {
         super.onDestroy()
