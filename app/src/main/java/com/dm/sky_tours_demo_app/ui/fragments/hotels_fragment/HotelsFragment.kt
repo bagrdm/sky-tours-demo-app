@@ -10,7 +10,6 @@ import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -19,6 +18,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dm.sky_tours_demo_app.R
 import com.dm.sky_tours_demo_app.databinding.FragmentHotelsNewBinding
+import com.dm.sky_tours_demo_app.domain.models.SearchCity
 import com.dm.sky_tours_demo_app.ui.adapters.DestinationsAdapter
 import com.dm.sky_tours_demo_app.ui.fragments.hotelslist_fragment.HotelsListFragment
 import com.dm.sky_tours_demo_app.ui.fragments.rooms_fragment.RoomsFragment
@@ -108,20 +108,20 @@ class HotelsFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.currentCity.collect {
-                    binding.inputDestinations.setText(it)
+                    binding.inputDestinations.setText(it.name)
                 }
             }
         }
     }
 
-    private fun getCityName(cityName: String) {
-        viewModel.setCurrentCity(cityName)
+    private fun getCity(city: SearchCity) {
+        viewModel.setCurrentCity(city)
         viewModel.clearCities()
         binding.inputDestinations.clearFocus()
     }
 
     private fun setupRV() {
-        destinationsAdapter = DestinationsAdapter(::getCityName)
+        destinationsAdapter = DestinationsAdapter(::getCity)
 
         val decorator =
             DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL).apply {
