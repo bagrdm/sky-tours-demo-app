@@ -140,6 +140,7 @@ class HotelsFragment : Fragment() {
         }
     }
 
+    // TODO(Что-то сделать с этим полотном)
     private fun setupDatePickerDialog() = with(binding) {
         fromToContainer.setOnClickListener {
             val builderRange = MaterialDatePicker.Builder.dateRangePicker()
