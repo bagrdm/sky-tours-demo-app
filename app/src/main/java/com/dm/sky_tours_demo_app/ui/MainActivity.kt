@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         bottomNavigationView.setupWithNavController(navController)
     }
 
+    // TODO(переделать позжe)
     override fun onBackPressed() {
         MaterialAlertDialogBuilder(this)
             .setIcon(R.drawable.icon_app)

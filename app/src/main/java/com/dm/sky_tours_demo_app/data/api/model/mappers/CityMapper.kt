@@ -7,6 +7,9 @@ import javax.inject.Inject
 class CityMapper @Inject constructor() : Mapper<City, SearchCity> {
 
     override fun mapToDomain(entity: City): SearchCity {
-        return SearchCity(name = entity.name)
+        return SearchCity(
+            name = entity.name,
+            geo = entity.geo
+        )
     }
 }
