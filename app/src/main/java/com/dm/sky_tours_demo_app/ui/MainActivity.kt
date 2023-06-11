@@ -1,7 +1,7 @@
 package com.dm.sky_tours_demo_app.ui
 
-import android.content.DialogInterface
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -16,7 +16,26 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        init()
+    }
+
+    private fun init() {
         setupBottomNav()
+        setupBackPressed()
+    }
+
+    private fun setupBackPressed() {
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                MaterialAlertDialogBuilder(this@MainActivity)
+                    .setIcon(R.drawable.icon_app)
+                    .setTitle(R.string.exit)
+                    .setMessage(R.string.question_exit)
+                    .setPositiveButton(R.string.possitive) { _, _ -> finish() }
+                    .setNegativeButton(R.string.negative, null)
+                    .show()
+            }
+        })
     }
 
     private fun setupBottomNav() {
@@ -28,17 +47,4 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
         bottomNavigationView.setupWithNavController(navController)
     }
-
-//     TODO(переделать позжe)
-    override fun onBackPressed() {
-        MaterialAlertDialogBuilder(this)
-            .setIcon(R.drawable.icon_app)
-            .setTitle(R.string.exit)
-            .setMessage(R.string.question_exit)
-            .setPositiveButton(
-                R.string.possitive,
-                DialogInterface.OnClickListener { dialog, which -> finish() })
-            .setNegativeButton(R.string.negative, null)
-            .show()
-    } //Выход
 }
