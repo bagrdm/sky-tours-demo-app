@@ -1,7 +1,6 @@
 package com.dm.sky_tours_demo_app.ui.fragments.hotels_fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,16 +19,16 @@ import com.dm.sky_tours_demo_app.R
 import com.dm.sky_tours_demo_app.databinding.FragmentHotelsNewBinding
 import com.dm.sky_tours_demo_app.domain.models.City
 import com.dm.sky_tours_demo_app.ui.adapters.DestinationsAdapter
+import com.dm.sky_tours_demo_app.ui.fragments.utils.createDatePicker
 import com.dm.sky_tours_demo_app.ui.fragments.hotelslist_fragment.HotelsListFragment
 import com.dm.sky_tours_demo_app.ui.fragments.rooms_fragment.RoomsFragment
-import com.dm.sky_tours_demo_app.ui.fragments.switchFragment
-import com.google.android.material.datepicker.MaterialDatePicker
+import com.dm.sky_tours_demo_app.ui.fragments.utils.switchFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import limitRange
 import java.text.SimpleDateFormat
+import java.util.Locale
 
 @AndroidEntryPoint
 class HotelsFragment : Fragment() {
@@ -60,10 +59,11 @@ class HotelsFragment : Fragment() {
     private fun init() {
         setupRV()
         setupCitiesObserver()
-        setupTextChangedListener()
         setupCityNameObserver()
-        setupDatePickerDialog()
+        setupDateObserver()
+        setupTextChangedListener()
         setupNavigationButtonsListeners()
+        setupDatePickerDialog()
     }
 
     private fun setupTextChangedListener() {
@@ -114,6 +114,17 @@ class HotelsFragment : Fragment() {
         }
     }
 
+    private fun setupDateObserver() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.date.collect {
+                    binding.fieldFrom.text = it.dateFrom
+                    binding.fieldTo.text = it.dateTo
+                }
+            }
+        }
+    }
+
     private fun getCity(city: City) {
         viewModel.setCurrentCity(city)
         viewModel.clearCities()
@@ -140,43 +151,24 @@ class HotelsFragment : Fragment() {
         }
     }
 
-    // TODO(Что-то сделать с этим полотном)
-    private fun setupDatePickerDialog() = with(binding) {
-        fromToContainer.setOnClickListener {
-            val builderRange = MaterialDatePicker.Builder.dateRangePicker()
-                .setTheme(com.dm.sky_tours_demo_app.R.style.ThemeOverlay_App_MaterialCalendar)
-                .setTitleText(com.dm.sky_tours_demo_app.R.string.choosedayofdp)
-            builderRange.setCalendarConstraints(limitRange().build())
-            val pickerRange = builderRange.build()
-            pickerRange.show(childFragmentManager, pickerRange.toString())
-            pickerRange.addOnPositiveButtonClickListener {
-                // formatting date in dd-mm-yyyy format.
-                val firstData = it.first // первая дата
-                val secondData = it.second // вторая дата
-                var dateFormatter = SimpleDateFormat("dd-MM-yyyy") /* формат даты */
-                val fdate = dateFormatter.format(firstData)
-                val sdate = dateFormatter.format(secondData)
-                val textfrom = fieldFrom //вывод в поле
-                val textto = fieldTo
-                textfrom.text = fdate!!  //вывод в поле
-                textto.text = sdate!!
-                Log.d("MyLog", "$fdate - date of departure is selected")
-                Log.d("MyLog", "$sdate - date of arrived is selected")
-                dateFormatter = SimpleDateFormat("yyyyMMdd") /* формат даты для запроса*/
-                val f2date = dateFormatter.format(firstData)
-                val s2date = dateFormatter.format(secondData)
-                val dates = "$f2date|$s2date"
-//                dataViewModel.hDates.value = dates
-                Log.d("DATES", dates)
+    private fun setupDatePickerDialog() {
+
+        val dateFormatter = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()) /* формат даты */
+
+        val datePickerDialog = createDatePicker(
+            R.style.ThemeOverlay_App_MaterialCalendar,
+            R.string.choosedayofar
+        ).apply {
+            addOnPositiveButtonClickListener {
+                viewModel.updateFromToDate(
+                    dateFormatter.format(it.first),
+                    dateFormatter.format(it.second)
+                )
             }
-            // Setting up the event for when cancelled is clicked
-            pickerRange.addOnNegativeButtonClickListener {
-                Log.d("MyLog", "${pickerRange.headerText} is cancelled")
-            }
-            // Setting up the event for when back button is pressed
-            pickerRange.addOnCancelListener {
-                Log.d("MyLog", "Date Picker Cancelled")
-            }
+        }
+
+        binding.fromToContainer.setOnClickListener {
+            datePickerDialog.show(childFragmentManager, "")
         }
     }
 

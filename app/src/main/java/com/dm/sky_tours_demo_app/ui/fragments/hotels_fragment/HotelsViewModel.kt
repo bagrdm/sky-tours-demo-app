@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dm.sky_tours_demo_app.domain.models.City
 import com.dm.sky_tours_demo_app.domain.usecases.GetCitiesUseCase
+import com.dm.sky_tours_demo_app.ui.fragments.utils.DateHolder
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -15,11 +16,18 @@ class HotelsViewModel @Inject constructor(
     private val getCitiesUseCase: GetCitiesUseCase,
 ) : ViewModel() {
 
+    private val _date = MutableStateFlow(DateHolder())
+    val date: StateFlow<DateHolder> get() = _date
+
     private val _currentCity = MutableStateFlow(City())
     val currentCity: StateFlow<City> get() = _currentCity
 
     private val _cities = MutableStateFlow<List<City>>(emptyList())
     val cities: StateFlow<List<City>> get() = _cities
+
+    fun updateFromToDate(from: String, to: String) {
+        _date.value = DateHolder(from, to)
+    }
 
     fun getCities(text: String) {
         viewModelScope.launch {

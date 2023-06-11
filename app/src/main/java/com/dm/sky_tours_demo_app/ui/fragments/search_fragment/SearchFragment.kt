@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.dm.sky_tours_demo_app.R
 import com.dm.sky_tours_demo_app.databinding.FragmentSearchBinding
-import com.dm.sky_tours_demo_app.ui.fragments.FragmentsHolder
-import com.dm.sky_tours_demo_app.ui.fragments.switchFragment
+import com.dm.sky_tours_demo_app.ui.fragments.utils.FragmentsHolder
+import com.dm.sky_tours_demo_app.ui.fragments.utils.switchFragment
 import com.dm.sky_tours_demo_app.ui.fragments.cars_fragment.CarsFragment
 import com.dm.sky_tours_demo_app.ui.fragments.flight_fragment.FlightFragment
 import com.dm.sky_tours_demo_app.ui.fragments.hotels_fragment.HotelsFragment
