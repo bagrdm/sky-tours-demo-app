@@ -112,7 +112,9 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/hotels_search_button"
-        style="@style/SearchButtonStyle"
+        style="@style/DefaultButtonStyle"
+        android:text="@string/search"
+        app:icon="@drawable/ic_search_24"
         app:layout_constraintEnd_toEndOf="@id/from_to_container"
         app:layout_constraintTop_toBottomOf="@id/children_count" />
 

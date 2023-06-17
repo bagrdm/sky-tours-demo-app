@@ -135,6 +135,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/window_tab_constraint"
         android:background="@drawable/custom_dialog_round"
+        tools:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -150,7 +151,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/window_tab_constraint"
-            tools:itemCount="4"
+            tools:itemCount="1"
             tools:listitem="@layout/room_list">
 
         </androidx.recyclerview.widget.RecyclerView>
