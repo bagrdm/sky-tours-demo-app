@@ -27,8 +27,19 @@
             android:inputType="textCapSentences"
             android:maxLines="1"
             android:textSize="?attr/labelTextSize" />
-
     </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/destinations_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="?attr/defaultMargin"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/destinations_container"
+        app:layout_constraintStart_toStartOf="@+id/destinations_container"
+        app:layout_constraintTop_toBottomOf="@+id/destinations_container">
+
+    </com.google.android.material.progressindicator.LinearProgressIndicator>
 
     <ImageView
         android:id="@+id/from_to_container"
@@ -36,7 +47,7 @@
         android:layout_height="?attr/defaultHW"
         android:layout_margin="?attr/defaultMargin"
         android:background="@drawable/rectangle_small_radius"
-        app:layout_constraintTop_toBottomOf="@id/destinations_container" />
+        app:layout_constraintTop_toBottomOf="@id/destinations_progress" />
 
     <ImageView
         android:id="@+id/calendar_img"
@@ -112,7 +123,9 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/hotels_search_button"
-        style="@style/SearchButtonStyle"
+        style="@style/DefaultButtonStyle"
+        android:text="@string/search"
+        app:icon="@drawable/ic_search_24"
         app:layout_constraintEnd_toEndOf="@id/from_to_container"
         app:layout_constraintTop_toBottomOf="@id/children_count" />
 

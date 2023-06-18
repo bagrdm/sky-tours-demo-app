@@ -6,223 +6,223 @@
     android:layout_height="wrap_content"
     app:cardCornerRadius="15dp">
 
-<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--            android:id="@+id/constraint"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="40sp"-->
-<!--            android:background="@color/gray_l"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent">-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint"
+            android:layout_width="match_parent"
+            android:layout_height="40sp"
+            android:background="@color/gray_l"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-<!--            <TextView-->
-<!--                android:id="@+id/room_count"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="40dp"-->
-<!--                android:elevation="10dp"-->
-<!--                android:gravity="left|center_vertical"-->
-<!--                android:paddingStart="10dp"-->
-<!--                android:text="@string/room"-->
-<!--                android:textSize="23sp"-->
-<!--                android:textStyle="bold"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent"-->
-<!--                tools:ignore="RtlSymmetry" />-->
+            <TextView
+                android:id="@+id/room_count"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:elevation="10dp"
+                android:gravity="left|center_vertical"
+                android:paddingStart="10dp"
+                android:text="@string/room"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="RtlSymmetry" />
 
-<!--            <ImageButton-->
-<!--                android:id="@+id/close_room_item"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginEnd="10dp"-->
-<!--                android:background="@color/tp"-->
-<!--                android:backgroundTintMode="src_over"-->
-<!--                android:src="@drawable/ic_close_passive"-->
-<!--                android:visibility="visible"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent"-->
-<!--                tools:ignore="TouchTargetSizeCheck"-->
-<!--                android:importantForAccessibility="no" />-->
+            <ImageButton
+                android:id="@+id/close_room_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:background="@color/tp"
+                android:backgroundTintMode="src_over"
+                android:src="@drawable/ic_close_passive"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck"
+                android:importantForAccessibility="no" />
 
-<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--            android:id="@+id/constraint2"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/constraint">-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraint">
 
-<!--            <ImageView-->
-<!--                android:id="@+id/adult_ic"-->
-<!--                android:layout_width="35dp"-->
-<!--                android:layout_height="60dp"-->
-<!--                android:layout_alignParentStart="true"-->
-<!--                android:layout_marginStart="10dp"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:src="@drawable/ic_human"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="@+id/constraint2"-->
-<!--                app:tint="@color/gray_main"-->
-<!--                android:importantForAccessibility="no" />-->
+            <ImageView
+                android:id="@+id/adult_ic"
+                android:layout_width="35dp"
+                android:layout_height="60dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_human"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/constraint2"
+                app:tint="@color/gray_main"
+                android:importantForAccessibility="no" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/adult"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginLeft="20dp"-->
-<!--                android:text="Взрослый"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="20dp"-->
-<!--                android:textStyle="bold"-->
-<!--                app:layout_constraintBottom_toBottomOf="@+id/adult_ic"-->
-<!--                app:layout_constraintStart_toEndOf="@+id/adult_ic"-->
-<!--                app:layout_constraintTop_toTopOf="@+id/adult_ic" />-->
+            <TextView
+                android:id="@+id/adult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="Взрослый"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/adult_ic"
+                app:layout_constraintStart_toEndOf="@+id/adult_ic"
+                app:layout_constraintTop_toTopOf="@+id/adult_ic" />
 
-<!--            <ImageButton-->
-<!--                android:id="@+id/button_add_adult"-->
-<!--                android:layout_width="48dp"-->
-<!--                android:layout_height="48dp"-->
-<!--                android:layout_marginRight="20dp"-->
-<!--                android:backgroundTint="@color/tp"-->
-<!--                android:src="@drawable/ic_add"-->
-<!--                app:layout_constraintBottom_toBottomOf="@+id/adult_counter"-->
-<!--                app:layout_constraintEnd_toStartOf="@+id/adult_counter"-->
-<!--                app:layout_constraintTop_toTopOf="@+id/adult_counter"-->
-<!--                app:tint="@color/gray_main"-->
-<!--                tools:ignore="SpeakableTextPresentCheck" />-->
+            <ImageButton
+                android:id="@+id/button_add_adult"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="@color/tp"
+                android:src="@drawable/ic_add"
+                app:layout_constraintBottom_toBottomOf="@+id/adult_counter"
+                app:layout_constraintEnd_toStartOf="@+id/adult_counter"
+                app:layout_constraintTop_toTopOf="@+id/adult_counter"
+                app:tint="@color/gray_main"
+                tools:ignore="SpeakableTextPresentCheck" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/adult_counter"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginRight="20dp"-->
-<!--                android:text="1"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="20dp"-->
-<!--                app:layout_constraintBottom_toBottomOf="@+id/button_remove_adult"-->
-<!--                app:layout_constraintEnd_toStartOf="@+id/button_remove_adult"-->
-<!--                app:layout_constraintTop_toTopOf="@+id/button_remove_adult" />-->
+            <TextView
+                android:id="@+id/adult_counter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:text="1"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/button_remove_adult"
+                app:layout_constraintEnd_toStartOf="@+id/button_remove_adult"
+                app:layout_constraintTop_toTopOf="@+id/button_remove_adult" />
 
-<!--            <ImageButton-->
-<!--                android:id="@+id/button_remove_adult"-->
-<!--                android:layout_width="48dp"-->
-<!--                android:layout_height="48dp"-->
-<!--                android:layout_marginTop="20dp"-->
-<!--                android:layout_marginEnd="10dp"-->
-<!--                android:backgroundTint="@color/tp"-->
-<!--                android:src="@drawable/ic_remove"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="@+id/constraint2"-->
-<!--                app:tint="@color/gray_main"-->
-<!--                tools:ignore="SpeakableTextPresentCheck" />-->
+            <ImageButton
+                android:id="@+id/button_remove_adult"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:backgroundTint="@color/tp"
+                android:src="@drawable/ic_remove"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/constraint2"
+                app:tint="@color/gray_main"
+                tools:ignore="SpeakableTextPresentCheck" />
 
-<!--            <ImageView-->
-<!--                android:id="@+id/child_ic"-->
-<!--                android:layout_width="35dp"-->
-<!--                android:layout_height="23dp"-->
-<!--                android:layout_below="@+id/adult_ic"-->
-<!--                android:layout_marginLeft="10dp"-->
-<!--                android:layout_marginTop="20dp"-->
-<!--                android:src="@drawable/ic_child"-->
-<!--                app:layout_constraintEnd_toEndOf="@+id/adult_ic"-->
-<!--                app:layout_constraintHorizontal_bias="1.0"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/adult_ic"-->
-<!--                app:tint="@color/gray_main" />-->
+            <ImageView
+                android:id="@+id/child_ic"
+                android:layout_width="35dp"
+                android:layout_height="23dp"
+                android:layout_below="@+id/adult_ic"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_child"
+                app:layout_constraintEnd_toEndOf="@+id/adult_ic"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/adult_ic"
+                app:tint="@color/gray_main" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/child"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="20dp"-->
-<!--                android:text="Ребенок"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="20sp"-->
-<!--                android:textStyle="bold"-->
-<!--                app:layout_constraintBottom_toBottomOf="@+id/child_ic"-->
-<!--                app:layout_constraintStart_toEndOf="@+id/child_ic"-->
-<!--                app:layout_constraintVertical_bias="0.851" />-->
+            <TextView
+                android:id="@+id/child"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="Ребенок"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/child_ic"
+                app:layout_constraintStart_toEndOf="@+id/child_ic"
+                app:layout_constraintVertical_bias="0.851" />
 
-<!--            <ImageButton-->
-<!--                android:id="@+id/button_add_child"-->
-<!--                android:layout_width="48dp"-->
-<!--                android:layout_height="48dp"-->
-<!--                android:layout_marginEnd="20dp"-->
-<!--                android:backgroundTint="@color/tp"-->
-<!--                android:src="@drawable/ic_add"-->
-<!--                app:layout_constraintBottom_toBottomOf="@+id/child_counter"-->
-<!--                app:layout_constraintEnd_toStartOf="@+id/child_counter"-->
-<!--                app:layout_constraintTop_toTopOf="@+id/child_counter"-->
-<!--                app:tint="@color/gray_main"-->
-<!--                tools:ignore="SpeakableTextPresentCheck" />-->
+            <ImageButton
+                android:id="@+id/button_add_child"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="20dp"
+                android:backgroundTint="@color/tp"
+                android:src="@drawable/ic_add"
+                app:layout_constraintBottom_toBottomOf="@+id/child_counter"
+                app:layout_constraintEnd_toStartOf="@+id/child_counter"
+                app:layout_constraintTop_toTopOf="@+id/child_counter"
+                app:tint="@color/gray_main"
+                tools:ignore="SpeakableTextPresentCheck" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/child_counter"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginRight="20dp"-->
-<!--                android:text="0"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="20dp"-->
-<!--                app:layout_constraintBottom_toBottomOf="@+id/button_remove_child"-->
-<!--                app:layout_constraintEnd_toStartOf="@+id/button_remove_child"-->
-<!--                app:layout_constraintTop_toTopOf="@+id/button_remove_child" />-->
+            <TextView
+                android:id="@+id/child_counter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/button_remove_child"
+                app:layout_constraintEnd_toStartOf="@+id/button_remove_child"
+                app:layout_constraintTop_toTopOf="@+id/button_remove_child" />
 
-<!--            <ImageButton-->
-<!--                android:id="@+id/button_remove_child"-->
-<!--                android:layout_width="48dp"-->
-<!--                android:layout_height="48dp"-->
-<!--                android:layout_marginTop="20dp"-->
-<!--                android:layout_marginEnd="10dp"-->
-<!--                android:layout_marginBottom="10sp"-->
-<!--                android:backgroundTint="@color/tp"-->
-<!--                android:src="@drawable/ic_remove"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/button_remove_adult"-->
-<!--                app:tint="@color/gray_main"-->
-<!--                tools:ignore="SpeakableTextPresentCheck" />-->
+            <ImageButton
+                android:id="@+id/button_remove_child"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10sp"
+                android:backgroundTint="@color/tp"
+                android:src="@drawable/ic_remove"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_remove_adult"
+                app:tint="@color/gray_main"
+                tools:ignore="SpeakableTextPresentCheck" />
 
 
-<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--            android:id="@+id/constraint3"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:background="@color/gray_l"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/constraint2">-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/gray_l"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraint2">
 
-<!--            <HorizontalScrollView-->
-<!--                android:id="@+id/hroom_scroll"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:scrollbars="horizontal"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent">-->
+            <HorizontalScrollView
+                android:id="@+id/hroom_scroll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scrollbars="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-<!--                <androidx.recyclerview.widget.RecyclerView-->
-<!--                    android:id="@+id/child_listrecycle"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:scrollbars="horizontal"-->
-<!--                    android:visibility="visible"-->
-<!--                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
-<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                    app:layout_constraintEnd_toEndOf="parent"-->
-<!--                    app:layout_constraintStart_toStartOf="parent"-->
-<!--                    app:layout_constraintTop_toTopOf="parent"-->
-<!--                    tools:itemCount="12"-->
-<!--                    tools:listitem="@layout/child_age_list">-->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/child_listrecycle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="horizontal"
+                    android:visibility="visible"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:itemCount="12"
+                    tools:listitem="@layout/child_age_list">
 
-<!--                </androidx.recyclerview.widget.RecyclerView>-->
-<!--            </HorizontalScrollView>-->
+                </androidx.recyclerview.widget.RecyclerView>
+            </HorizontalScrollView>
 
-<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+        </androidx.constraintlayout.widget.ConstraintLayout>
 <!--    -->
     </androidx.cardview.widget.CardView>

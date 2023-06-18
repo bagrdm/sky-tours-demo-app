@@ -69,8 +69,7 @@ class HotelsFragment : Fragment() {
     private fun setupTextChangedListener() {
         binding.inputDestinations.doAfterTextChanged { text ->
             val query = text.toString()
-
-            if (query.length >= 3) {
+            if (query.length >= 2) {
                 viewLifecycleOwner.lifecycleScope.launch {
                     repeatOnLifecycle(Lifecycle.State.STARTED) {
                         viewModel.getCities(query)
@@ -91,12 +90,14 @@ class HotelsFragment : Fragment() {
                         withContext(Dispatchers.Main) {
                             binding.mainGroup.isGone = true
                             binding.destinationsRv.isVisible = true
+                            binding.destinationsProgress.isGone = true
                         }
                     } else {
                         destinationsAdapter.submitList(emptyList())
                         withContext(Dispatchers.Main) {
                             binding.mainGroup.isVisible = true
                             binding.destinationsRv.isGone = true
+                            binding.destinationsProgress.isVisible = true
                         }
                     }
                 }

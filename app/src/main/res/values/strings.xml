@@ -179,4 +179,13 @@
     <string name="add_adults_or_childrens" translatable="false">add adults or childrens</string>
     <string name="entered_3_or_more_symbols" translatable="false">entered 3 or more symbols</string>
 
+    <string name="room_adult_count" translatable="false">adult %d/14</string>
+    <string name="room_child_count" translatable="false">children %d/13</string>
+    <string name="room_overall_count" translatable="false">overall %d/14</string>
+    <string name="room_number" translatable="false">Room %d</string>
+    <string name="close_room">close room</string>
+    <string name="remove_adult">remove adult</string>
+    <string name="add_adult">add adult</string>
+    <string name="add_child">add child</string>
+
 </resources>

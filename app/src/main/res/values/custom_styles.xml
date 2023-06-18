@@ -19,17 +19,15 @@
     <style name="CountViewStyle" parent="BaseTextStyle">
         <item name="android:gravity">center</item>
         <item name="android:background">@drawable/rectangle_double_radius</item>
-        <item name="android:layout_width">48dp</item>
-        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_width">?attr/defaultHW</item>
+        <item name="android:layout_height">?attr/defaultHW</item>
         <item name="android:layout_margin">?attr/doubleMargin</item>
     </style>
 
-    <style name="SearchButtonStyle">
+    <style name="DefaultButtonStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">?attr/doubleMargin</item>
-        <item name="android:text">@string/search</item>
-        <item name="icon">@drawable/ic_search_24</item>
     </style>
 
     <style name="FromToStyle">
@@ -38,7 +36,20 @@
         <item name="android:textSize">?attr/fromToTextSize</item>
         <item name="android:minWidth">56dp</item>
         <item name="android:gravity">center</item>
+    </style>
 
+    <style name="DefaultImageButtonStyle">
+        <item name="android:layout_width">?attr/defaultHW</item>
+        <item name="android:layout_height">?attr/defaultHW</item>
+        <item name="android:background">@color/tp</item>
+    </style>
+
+    <style name="AddRoomButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/rectangle</item>
+        <item name="icon">@drawable/ic_plus</item>
+        <item name="iconTint">@color/teal_main</item>
     </style>
 
 </resources>
