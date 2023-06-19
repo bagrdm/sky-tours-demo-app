@@ -41,13 +41,21 @@
 
     </com.google.android.material.progressindicator.LinearProgressIndicator>
 
+    <ImageButton
+        android:id="@+id/hotels_location_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/tp"
+        android:src="@drawable/ic_location"
+        app:layout_constraintStart_toStartOf="@+id/destinations_container"
+        app:layout_constraintTop_toBottomOf="@+id/destinations_container" />
     <ImageView
         android:id="@+id/from_to_container"
         android:layout_width="match_parent"
         android:layout_height="?attr/defaultHW"
         android:layout_margin="?attr/defaultMargin"
         android:background="@drawable/rectangle_small_radius"
-        app:layout_constraintTop_toBottomOf="@id/destinations_progress" />
+        app:layout_constraintTop_toBottomOf="@id/hotels_location_icon" />
 
     <ImageView
         android:id="@+id/calendar_img"
@@ -159,4 +167,23 @@
         android:visibility="visible"
         app:constraint_referenced_ids="hidden_button, arrow, calendar_img, field_from, field_to, from_to_container, adult_count, adult_label, children_count, children_label, hotels_search_button" />
 
+
+    <TextView
+android:id="@+id/latitude_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="18dp"
+        app:layout_constraintTop_toBottomOf="@+id/adult_label"></TextView>
+
+    <TextView
+        android:id="@+id/longitude_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="18dp"
+
+        app:layout_constraintTop_toBottomOf="@+id/hotels_search_button"></TextView>
 </androidx.constraintlayout.widget.ConstraintLayout>

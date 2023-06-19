@@ -1,9 +1,22 @@
 package com.dm.sky_tours_demo_app.ui.fragments.hotels_fragment
 
+import android.Manifest
+import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Context.LOCALE_SERVICE
+import android.content.Context.LOCATION_SERVICE
+import android.content.pm.PackageManager
+import android.location.Location
+import android.location.LocationManager
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat.getSystemService
+import androidx.core.content.getSystemService
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
@@ -23,6 +36,11 @@ import com.dm.sky_tours_demo_app.ui.fragments.utils.createDatePicker
 import com.dm.sky_tours_demo_app.ui.fragments.hotelslist_fragment.HotelsListFragment
 import com.dm.sky_tours_demo_app.ui.fragments.rooms_fragment.RoomsFragment
 import com.dm.sky_tours_demo_app.ui.fragments.utils.switchFragment
+import com.google.android.gms.common.ConnectionResult
+import com.google.android.gms.common.api.GoogleApiClient
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationServices
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -31,7 +49,7 @@ import java.text.SimpleDateFormat
 import java.util.Locale
 
 @AndroidEntryPoint
-class HotelsFragment : Fragment() {
+class HotelsFragment : Fragment(){
 
     private val viewModel: HotelsViewModel by viewModels()
 
@@ -39,6 +57,7 @@ class HotelsFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var destinationsAdapter: DestinationsAdapter
+    private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,13 +65,13 @@ class HotelsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHotelsNewBinding.inflate(inflater, container, false)
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireActivity())
 
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         init()
     }
 
@@ -64,12 +83,13 @@ class HotelsFragment : Fragment() {
         setupTextChangedListener()
         setupNavigationButtonsListeners()
         setupDatePickerDialog()
+        setupLocationListener()
     }
 
     private fun setupTextChangedListener() {
         binding.inputDestinations.doAfterTextChanged { text ->
             val query = text.toString()
-            if (query.length >= 2) {
+            if (query.length >= 3) {
                 viewLifecycleOwner.lifecycleScope.launch {
                     repeatOnLifecycle(Lifecycle.State.STARTED) {
                         viewModel.getCities(query)
@@ -77,6 +97,43 @@ class HotelsFragment : Fragment() {
                 }
             } else {
                 viewModel.clearCities()
+            }
+        }
+    }
+
+    private fun setupLocationListener() {
+        binding.hotelsLocationIcon.setOnClickListener {
+            detectLocation()
+        }
+    }
+
+    private fun detectLocation() {
+        try {
+            getActualLocation()
+        }catch (e: java.lang.Exception){
+            e.printStackTrace()
+        }
+    }
+
+    private fun getActualLocation() {
+
+        val task = fusedLocationProviderClient.lastLocation
+
+        if (ActivityCompat
+                .checkSelfPermission(requireContext(), android.Manifest.permission.ACCESS_FINE_LOCATION)
+            != PackageManager.PERMISSION_GRANTED && ActivityCompat
+                .checkSelfPermission(requireContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION)
+            != PackageManager.PERMISSION_GRANTED){
+
+            ActivityCompat.requestPermissions(requireActivity(), arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), 101)
+            return
+        }
+
+        task.addOnSuccessListener {
+            if (it != null){
+                Log.d("Hotels",it.latitude.toString())
+                binding.latitudeTextview.text = "${it.latitude}" // it.longitude is a Double
+                binding.longitudeTextview.text = "${it.longitude}" // tvLongitude is a TextView
             }
         }
     }
