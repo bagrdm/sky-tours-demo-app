@@ -27,8 +27,69 @@
             android:inputType="textCapSentences"
             android:maxLines="1"
             android:textSize="?attr/labelTextSize" />
-
     </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/destinations_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="?attr/defaultMargin"
+        android:indeterminate="true"
+        android:indeterminateBehavior="cycle"
+        android:indeterminateOnly="true"
+        android:indeterminateTint="#8BC34A"
+        android:indeterminateTintMode="src_in"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/destinations_container"
+        app:layout_constraintStart_toStartOf="@+id/destinations_container"
+        app:layout_constraintTop_toBottomOf="@+id/destinations_container">
+
+    </com.google.android.material.progressindicator.LinearProgressIndicator>
+
+    <ImageButton
+        android:id="@+id/hotels_location_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/tp"
+        android:src="@drawable/ic_location"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@+id/destinations_progress"
+        app:layout_constraintTop_toBottomOf="@+id/destinations_progress" />
+
+    <TextView
+        android:id="@+id/text_search_near"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/search_near"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@+id/hotels_location_icon"
+        app:layout_constraintTop_toBottomOf="@+id/destinations_progress" />
+
+    <TextView
+        android:id="@+id/text_detect_location"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/detect_location"
+        android:textColor="@color/gray_main"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@+id/hotels_location_icon"
+        app:layout_constraintTop_toBottomOf="@+id/text_search_near" />
+
+
+    <TextView
+        android:id="@+id/text_maybe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/maybe_u_mean"
+        android:textColor="@color/gray_main"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/destinations_progress"
+        app:layout_constraintStart_toStartOf="@+id/hotels_location_icon"
+        app:layout_constraintTop_toBottomOf="@+id/hotels_location_icon" />
 
     <ImageView
         android:id="@+id/from_to_container"
@@ -36,7 +97,8 @@
         android:layout_height="?attr/defaultHW"
         android:layout_margin="?attr/defaultMargin"
         android:background="@drawable/rectangle_small_radius"
-        app:layout_constraintTop_toBottomOf="@id/destinations_container" />
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/destinations_rv" />
 
     <ImageView
         android:id="@+id/calendar_img"
@@ -126,7 +188,7 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="@id/destinations_container"
         app:layout_constraintStart_toStartOf="@id/destinations_container"
-        app:layout_constraintTop_toBottomOf="@id/destinations_container"
+        app:layout_constraintTop_toBottomOf="@id/text_maybe"
         tools:itemCount="5"
         tools:listitem="@layout/destinations_list_new"
         tools:visibility="gone" />
@@ -148,4 +210,22 @@
         android:visibility="visible"
         app:constraint_referenced_ids="hidden_button, arrow, calendar_img, field_from, field_to, from_to_container, adult_count, adult_label, children_count, children_label, hotels_search_button" />
 
+
+    <TextView
+        android:id="@+id/latitude_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adult_label" />
+
+    <TextView
+        android:id="@+id/longitude_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hotels_search_button" />
 </androidx.constraintlayout.widget.ConstraintLayout>

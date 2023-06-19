@@ -55,6 +55,7 @@ dependencies {
     implementation(libs.retrofit.converter)
 
     implementation(libs.moshi)
+    implementation(libs.play.services.location)
     kapt(libs.moshi.codegen)
 
     implementation(libs.hilt.android)
