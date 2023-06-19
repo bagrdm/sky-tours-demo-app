@@ -35,12 +35,14 @@ import com.dm.sky_tours_demo_app.ui.adapters.DestinationsAdapter
 import com.dm.sky_tours_demo_app.ui.fragments.utils.createDatePicker
 import com.dm.sky_tours_demo_app.ui.fragments.hotelslist_fragment.HotelsListFragment
 import com.dm.sky_tours_demo_app.ui.fragments.rooms_fragment.RoomsFragment
+import com.dm.sky_tours_demo_app.ui.fragments.utils.AppTextWatcher
 import com.dm.sky_tours_demo_app.ui.fragments.utils.switchFragment
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
+import com.google.android.material.textview.MaterialTextView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -49,7 +51,7 @@ import java.text.SimpleDateFormat
 import java.util.Locale
 
 @AndroidEntryPoint
-class HotelsFragment : Fragment(){
+class HotelsFragment : Fragment() {
 
     private val viewModel: HotelsViewModel by viewModels()
 
@@ -65,7 +67,8 @@ class HotelsFragment : Fragment(){
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHotelsNewBinding.inflate(inflater, container, false)
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireActivity())
+        fusedLocationProviderClient =
+            LocationServices.getFusedLocationProviderClient(requireActivity())
 
         return binding.root
     }
@@ -86,20 +89,44 @@ class HotelsFragment : Fragment(){
         setupLocationListener()
     }
 
+//    private fun setupTextChangedListener() {
+//        binding.inputDestinations.doAfterTextChanged { text ->
+//            val query = text.toString()
+//            if (query.length >= 3) {
+//                viewLifecycleOwner.lifecycleScope.launch {
+//                    repeatOnLifecycle(Lifecycle.State.STARTED) {
+//                        viewModel.getCities(query)
+//                    }
+//                }
+//            } else {
+//                viewModel.clearCities()
+//            }
+//        }
+//    }
+
     private fun setupTextChangedListener() {
-        binding.inputDestinations.doAfterTextChanged { text ->
-            val query = text.toString()
-            if (query.length >= 3) {
-                viewLifecycleOwner.lifecycleScope.launch {
-                    repeatOnLifecycle(Lifecycle.State.STARTED) {
-                        viewModel.getCities(query)
+        binding.inputDestinations.addTextChangedListener(
+            AppTextWatcher {
+                val query = it.toString()
+                if (query.length >= 3) {
+                    binding.destinationsProgress.isVisible = true
+                    binding.hotelsLocationIcon.isVisible = true
+                    binding.textSearchNear.isVisible = true
+                    binding.textDetectLocation.isVisible = true
+                    viewLifecycleOwner.lifecycleScope.launch {
+                        repeatOnLifecycle(Lifecycle.State.STARTED) {
+                            viewModel.getCities(query)
+                        }
                     }
+                } else {
+                    binding.destinationsProgress.isGone = true
+                    binding.textMaybe.isGone = true
+                    viewModel.clearCities()
                 }
-            } else {
-                viewModel.clearCities()
             }
-        }
+        )
     }
+
 
     private fun setupLocationListener() {
         binding.hotelsLocationIcon.setOnClickListener {
@@ -110,7 +137,7 @@ class HotelsFragment : Fragment(){
     private fun detectLocation() {
         try {
             getActualLocation()
-        }catch (e: java.lang.Exception){
+        } catch (e: java.lang.Exception) {
             e.printStackTrace()
         }
     }
@@ -120,18 +147,29 @@ class HotelsFragment : Fragment(){
         val task = fusedLocationProviderClient.lastLocation
 
         if (ActivityCompat
-                .checkSelfPermission(requireContext(), android.Manifest.permission.ACCESS_FINE_LOCATION)
+                .checkSelfPermission(
+                    requireContext(),
+                    android.Manifest.permission.ACCESS_FINE_LOCATION
+                )
             != PackageManager.PERMISSION_GRANTED && ActivityCompat
-                .checkSelfPermission(requireContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION)
-            != PackageManager.PERMISSION_GRANTED){
+                .checkSelfPermission(
+                    requireContext(),
+                    android.Manifest.permission.ACCESS_COARSE_LOCATION
+                )
+            != PackageManager.PERMISSION_GRANTED
+        ) {
 
-            ActivityCompat.requestPermissions(requireActivity(), arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), 101)
+            ActivityCompat.requestPermissions(
+                requireActivity(),
+                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
+                101
+            )
             return
         }
 
         task.addOnSuccessListener {
-            if (it != null){
-                Log.d("Hotels",it.latitude.toString())
+            if (it != null) {
+                Log.d("Hotels", it.latitude.toString())
                 binding.latitudeTextview.text = "${it.latitude}" // it.longitude is a Double
                 binding.longitudeTextview.text = "${it.longitude}" // tvLongitude is a TextView
             }
@@ -147,14 +185,18 @@ class HotelsFragment : Fragment(){
                         withContext(Dispatchers.Main) {
                             binding.mainGroup.isGone = true
                             binding.destinationsRv.isVisible = true
-                            binding.destinationsProgress.isGone = true
+                            binding.textMaybe.isVisible = true
                         }
                     } else {
                         destinationsAdapter.submitList(emptyList())
                         withContext(Dispatchers.Main) {
                             binding.mainGroup.isVisible = true
                             binding.destinationsRv.isGone = true
-                            binding.destinationsProgress.isVisible = true
+                            binding.destinationsProgress.isGone = true
+                            binding.hotelsLocationIcon.isGone = true
+                            binding.textSearchNear.isGone = true
+                            binding.textDetectLocation.isGone = true
+                            binding.textMaybe.isGone = true
                         }
                     }
                 }
