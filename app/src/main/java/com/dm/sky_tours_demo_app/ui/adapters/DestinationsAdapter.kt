@@ -9,7 +9,7 @@ import com.dm.sky_tours_demo_app.databinding.DestinationsListNewBinding
 import com.dm.sky_tours_demo_app.domain.models.City
 
 class DestinationsAdapter(private val getCity: (City) -> Unit) :
-    ListAdapter<City, DestinationsAdapter.DestinationsViewHolder>(itemComparator) {
+    ListAdapter<City, DestinationsViewHolder>(itemComparator) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DestinationsViewHolder {
         val binding = DestinationsListNewBinding.inflate(
@@ -32,14 +32,14 @@ class DestinationsAdapter(private val getCity: (City) -> Unit) :
     override fun onBindViewHolder(holder: DestinationsViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
+}
 
-    class DestinationsViewHolder(
-        private val binding: DestinationsListNewBinding
-    ) : RecyclerView.ViewHolder(binding.root) {
+class DestinationsViewHolder(
+    private val binding: DestinationsListNewBinding
+) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: City) {
-            binding.cityName.text = item.name
-        }
+    fun bind(item: City) {
+        binding.cityName.text = item.name
     }
 }
 

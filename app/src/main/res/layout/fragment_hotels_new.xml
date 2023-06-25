@@ -210,22 +210,15 @@
         android:visibility="visible"
         app:constraint_referenced_ids="hidden_button, arrow, calendar_img, field_from, field_to, from_to_container, adult_count, adult_label, children_count, children_label, hotels_search_button" />
 
-
-    <TextView
-        android:id="@+id/latitude_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/hotels_rv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adult_label" />
+        app:layout_constraintTop_toBottomOf="@id/hotels_search_button"
+        tools:itemCount="3"
+        tools:listitem="@layout/hotel_item_new" />
 
-    <TextView
-        android:id="@+id/longitude_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hotels_search_button" />
 </androidx.constraintlayout.widget.ConstraintLayout>

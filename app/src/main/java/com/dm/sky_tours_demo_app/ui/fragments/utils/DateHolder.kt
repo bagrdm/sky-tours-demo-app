@@ -1,18 +1,20 @@
 package com.dm.sky_tours_demo_app.ui.fragments.utils
 
-import java.text.SimpleDateFormat
-import java.util.Locale
-
 data class DateHolder(
     val dateFrom: String = "",
     val dateTo: String = ""
 ) {
     fun getQueryDate(): String {
-        val formatter = SimpleDateFormat("yyyyMMdd", Locale.getDefault())
 
-        val from = formatter.format(dateFrom)
-        val to = formatter.format(dateTo)
+        val from = dateFormat(dateFrom)
+        val to = dateFormat(dateTo)
 
         return "$from|$to"
+    }
+
+    private fun dateFormat(date: String): String {
+        val (day, month, year) = date.split("-")
+
+        return "$year$month$day"
     }
 }

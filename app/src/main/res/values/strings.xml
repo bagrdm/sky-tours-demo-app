@@ -183,9 +183,9 @@
     <string name="room_child_count" translatable="false">children %d/13</string>
     <string name="room_overall_count" translatable="false">overall %d/14</string>
     <string name="room_number" translatable="false">Room %d</string>
-    <string name="close_room">close room</string>
-    <string name="remove_adult">remove adult</string>
-    <string name="add_adult">add adult</string>
-    <string name="add_child">add child</string>
+    <string name="close_room" translatable="false">close room</string>
+    <string name="remove_adult" translatable="false">remove adult</string>
+    <string name="add_adult" translatable="false">add adult</string>
+    <string name="add_child" translatable="false">add child</string>
 
 </resources>

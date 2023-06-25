@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -8,16 +9,16 @@
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@drawable/rectangle"
-        app:tabBackground="@color/tp"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="0dp"
+        android:background="@drawable/rectangle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:tabBackground="@color/tp"
+        app:tabContentStart="20dp"
         app:tabGravity="fill"
         app:tabIndicatorColor="@color/teal_main"
-        app:tabContentStart="20dp"
         app:tabIndicatorHeight="3dp"
         app:tabInlineLabel="false"
         app:tabMode="scrollable"
@@ -49,12 +50,13 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container"
+        android:name="com.dm.sky_tours_demo_app.ui.fragments.hotels_fragment.HotelsFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:name="com.dm.sky_tours_demo_app.ui.fragments.hotels_fragment.HotelsFragment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout"
+        tools:layout="@layout/fragment_hotels_new" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

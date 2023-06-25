@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardView"
+    style="@style/CustomCardViewStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    app:cardBackgroundColor="@color/tp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="0dp"
+    app:strokeColor="@color/gray_d"
+    app:strokeWidth="2dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#AAFFFFFF" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/hotels_preview"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="?attr/defaultMargin"
+            android:src="@drawable/custom_dialog_round"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/hotel_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="?attr/defaultMargin"
+            android:text="@string/hotel_name"
+            android:textColor="@color/gray_main"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/hotels_preview"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/hotel_name"
+            app:layout_constraintTop_toBottomOf="@id/hotel_name" />
+
+        <ImageView
+            android:id="@+id/location_icon"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_margin="?attr/defaultMargin"
+            android:backgroundTint="@color/gray_main"
+            android:src="@drawable/ic_location"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hotels_preview" />
+
+        <TextView
+            android:id="@+id/address_field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="?attr/defaultMargin"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:text="@string/address"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@id/location_icon"
+            app:layout_constraintStart_toEndOf="@id/location_icon"
+            app:layout_constraintTop_toTopOf="@id/location_icon" />
+
+        <TextView
+            android:id="@+id/description_field"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:ellipsize="end"
+            android:fillViewport="true"
+            android:focusable="true"
+            android:maxLines="6"
+            android:scrollbars="vertical"
+            android:text="@string/hotels_description"
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="@id/hotel_name"
+            app:layout_constraintTop_toBottomOf="@id/ratingBar" />
+
+        <TextView
+            android:id="@+id/pernight_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/per_night"
+            app:layout_constraintBottom_toTopOf="@id/currency"
+            app:layout_constraintStart_toStartOf="@id/choose_btn" />
+
+        <TextView
+            android:id="@+id/currency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/us"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/total_price_title"
+            app:layout_constraintStart_toStartOf="@id/choose_btn">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:text="@string/zero"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/total_price_title"
+            app:layout_constraintStart_toEndOf="@id/currency" />
+
+        <TextView
+            android:id="@+id/total_price_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/total_price"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toTopOf="@id/currency2"
+            app:layout_constraintStart_toStartOf="@id/choose_btn" />
+
+        <TextView
+            android:id="@+id/currency2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/us"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toTopOf="@id/choose_btn"
+            app:layout_constraintStart_toStartOf="@id/choose_btn">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/total_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:text="@string/zero"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toTopOf="@id/choose_btn"
+            app:layout_constraintStart_toEndOf="@id/currency2">
+
+        </TextView>
+
+        <Button
+            android:id="@+id/choose_btn"
+            style="@style/DefaultButtonStyle"
+            android:layout_margin="8dp"
+            android:text="@string/choose"
+            android:textSize="11sp"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

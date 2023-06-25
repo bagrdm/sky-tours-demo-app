@@ -1,27 +1,20 @@
 package com.dm.sky_tours_demo_app.ui.fragments.hotels_fragment
 
-import android.Manifest
-import android.annotation.SuppressLint
-import android.content.Context
-import android.content.Context.LOCALE_SERVICE
-import android.content.Context.LOCATION_SERVICE
 import android.content.pm.PackageManager
-import android.location.Location
-import android.location.LocationManager
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat.getSystemService
-import androidx.core.content.getSystemService
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
-import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -32,17 +25,16 @@ import com.dm.sky_tours_demo_app.R
 import com.dm.sky_tours_demo_app.databinding.FragmentHotelsNewBinding
 import com.dm.sky_tours_demo_app.domain.models.City
 import com.dm.sky_tours_demo_app.ui.adapters.DestinationsAdapter
+import com.dm.sky_tours_demo_app.ui.adapters.HotelsAdapter
 import com.dm.sky_tours_demo_app.ui.fragments.utils.createDatePicker
 import com.dm.sky_tours_demo_app.ui.fragments.hotelslist_fragment.HotelsListFragment
 import com.dm.sky_tours_demo_app.ui.fragments.rooms_fragment.RoomsFragment
+import com.dm.sky_tours_demo_app.ui.fragments.rooms_fragment.RoomsFragment.Companion.ROOMS_DATA
 import com.dm.sky_tours_demo_app.ui.fragments.utils.AppTextWatcher
 import com.dm.sky_tours_demo_app.ui.fragments.utils.switchFragment
-import com.google.android.gms.common.ConnectionResult
-import com.google.android.gms.common.api.GoogleApiClient
+import com.dm.sky_tours_demo_app.ui.model.RoomsData
 import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
-import com.google.android.material.textview.MaterialTextView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -59,7 +51,31 @@ class HotelsFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var destinationsAdapter: DestinationsAdapter
+    private lateinit var hotelsAdapter: HotelsAdapter
+
+    //        TODO(need refactoring)
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+//        TODO(need refactoring)
+        setFragmentResultListener(REQUEST_KEY) { _, bundle ->
+            val roomsData = bundle.getParcelable(ROOMS_DATA, RoomsData::class.java)
+
+            roomsData?.let {
+
+                viewModel.updateRooms(it)
+
+                Toast.makeText(
+                    requireContext(),
+                    "Adults: ${it.adultCount}, Child: ${it.childCount}",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -67,6 +83,7 @@ class HotelsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHotelsNewBinding.inflate(inflater, container, false)
+
         fusedLocationProviderClient =
             LocationServices.getFusedLocationProviderClient(requireActivity())
 
@@ -75,21 +92,24 @@ class HotelsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         init()
     }
 
     private fun init() {
         setupRV()
+        setupRoomsObserver()
         setupCitiesObserver()
         setupCityNameObserver()
         setupDateObserver()
+        setupHotelsObserver()
         setupTextChangedListener()
         setupNavigationButtonsListeners()
         setupDatePickerDialog()
         setupLocationListener()
     }
 
-//    private fun setupTextChangedListener() {
+    //    private fun setupTextChangedListener() {
 //        binding.inputDestinations.doAfterTextChanged { text ->
 //            val query = text.toString()
 //            if (query.length >= 3) {
@@ -104,6 +124,7 @@ class HotelsFragment : Fragment() {
 //        }
 //    }
 
+    //    TODO(need refactoring)
     private fun setupTextChangedListener() {
         binding.inputDestinations.addTextChangedListener(
             AppTextWatcher {
@@ -115,7 +136,7 @@ class HotelsFragment : Fragment() {
                     binding.textDetectLocation.isVisible = true
                     viewLifecycleOwner.lifecycleScope.launch {
                         repeatOnLifecycle(Lifecycle.State.STARTED) {
-                            viewModel.getCities(query)
+                            viewModel.fetchCities(query)
                         }
                     }
                 } else {
@@ -127,13 +148,14 @@ class HotelsFragment : Fragment() {
         )
     }
 
-
+    //        TODO(need refactoring)
     private fun setupLocationListener() {
         binding.hotelsLocationIcon.setOnClickListener {
             detectLocation()
         }
     }
 
+    //        TODO(need refactoring)
     private fun detectLocation() {
         try {
             getActualLocation()
@@ -142,6 +164,7 @@ class HotelsFragment : Fragment() {
         }
     }
 
+    //        TODO(need refactoring)
     private fun getActualLocation() {
 
         val task = fusedLocationProviderClient.lastLocation
@@ -170,12 +193,13 @@ class HotelsFragment : Fragment() {
         task.addOnSuccessListener {
             if (it != null) {
                 Log.d("Hotels", it.latitude.toString())
-                binding.latitudeTextview.text = "${it.latitude}" // it.longitude is a Double
-                binding.longitudeTextview.text = "${it.longitude}" // tvLongitude is a TextView
+//                binding.latitudeTextview.text = "${it.latitude}" // it.longitude is a Double
+//                binding.longitudeTextview.text = "${it.longitude}" // tvLongitude is a TextView
             }
         }
     }
 
+    //        TODO(need refactoring)
     private fun setupCitiesObserver() {
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -204,6 +228,18 @@ class HotelsFragment : Fragment() {
         }
     }
 
+    private fun setupHotelsObserver() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.hotels.collect {
+                    if (it.isNotEmpty()) {
+                        hotelsAdapter.submitList(it)
+                    }
+                }
+            }
+        }
+    }
+
     private fun setupCityNameObserver() {
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -225,6 +261,17 @@ class HotelsFragment : Fragment() {
         }
     }
 
+    private fun setupRoomsObserver() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.rooms.collect {
+                    binding.adultCount.text = it.adultCount.toString()
+                    binding.childrenCount.text = it.childCount.toString()
+                }
+            }
+        }
+    }
+
     private fun getCity(city: City) {
         viewModel.setCurrentCity(city)
         viewModel.clearCities()
@@ -232,6 +279,7 @@ class HotelsFragment : Fragment() {
     }
 
     private fun setupRV() {
+        hotelsAdapter = HotelsAdapter()
         destinationsAdapter = DestinationsAdapter(::getCity)
 
         val decorator =
@@ -248,6 +296,8 @@ class HotelsFragment : Fragment() {
         with(binding) {
             destinationsRv.addItemDecoration(decorator)
             destinationsRv.adapter = destinationsAdapter
+
+            hotelsRv.adapter = hotelsAdapter
         }
     }
 
@@ -286,11 +336,20 @@ class HotelsFragment : Fragment() {
             hiddenButton.setOnClickListener {
                 switchFragment(fm, container, RoomsFragment())
             }
+
+            hotelsSearchButton.setOnClickListener {
+                viewModel.fetchHotels()
+            }
         }
     }
 
     override fun onDestroy() {
         super.onDestroy()
+
         _binding = null
+    }
+
+    companion object {
+        const val REQUEST_KEY = "qwerty"
     }
 }

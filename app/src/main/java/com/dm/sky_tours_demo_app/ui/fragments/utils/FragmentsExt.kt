@@ -7,6 +7,7 @@ import androidx.fragment.app.commit
 
 fun Fragment.switchFragment(fm: FragmentManager, @IdRes container: Int, fragment: Fragment) {
     fm.commit {
+        addToBackStack(null)
         replace(container, fragment)
     }
 }

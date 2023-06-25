@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.kapt)
     alias(libs.plugins.hilt)
+    id("kotlin-parcelize")
 }
 
 android {
@@ -44,6 +45,8 @@ android {
 
 dependencies {
 
+    implementation(libs.fragment.ktx)
+
     implementation(libs.navigation.fragment.ktx)
     implementation(libs.navigation.ui.ktx)
 
@@ -55,13 +58,14 @@ dependencies {
     implementation(libs.retrofit.converter)
 
     implementation(libs.moshi)
-    implementation(libs.play.services.location)
     kapt(libs.moshi.codegen)
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
 
     implementation(libs.lifecycle.viemodel.ktx)
+
+    implementation(libs.play.services.location)
 
     implementation(libs.core.ktx)
     implementation(libs.appcompat)

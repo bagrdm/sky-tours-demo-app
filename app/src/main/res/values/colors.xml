@@ -44,4 +44,6 @@
     <color name="background">#cee9f2</color>
     <color name="nav">#105467</color>
 
+    <color name="test_color">#46FFFFFF</color>
+
 </resources>
