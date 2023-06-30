@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isGone
@@ -56,13 +55,13 @@ class HotelsFragment : Fragment() {
     //        TODO(need refactoring)
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 
-    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-//        TODO(need refactoring)
         setFragmentResultListener(REQUEST_KEY) { _, bundle ->
-            val roomsData = bundle.getParcelable(ROOMS_DATA, RoomsData::class.java)
+            val roomsData = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
+                bundle.getParcelable(ROOMS_DATA, RoomsData::class.java)
+            else bundle.getParcelable(ROOMS_DATA)
 
             roomsData?.let {
 
